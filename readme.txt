@@ -60,7 +60,7 @@ To Do List:
     - find free project management software and set up a project
         - track hours with clockify (this first hour was not tracked)
         - GitHub has some features that are free?
-        - is Bitbucket free to individuals?
+        - is Bitbucket free to individuals? Jira is, still haven't checked bitbucket
         - should this be part of the app? :lol: :sweat-smile:
     - plan features
         - brainstorm useful and necessary features [DONE]
