@@ -1,0 +1,6 @@
+.section-header {
+  transition: background 0.2s;
+}
+.section-header:hover {
+  filter: brightness(1.05);
+}
