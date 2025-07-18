@@ -177,12 +177,22 @@ const SchedulePage: React.FC = () => {
         }
     ], []);
 
+    const ticketsBySection = useMemo(() => {
+        const grouped: Record<string, typeof tickets> = {};
+        sections.forEach(section => {
+            grouped[section] = tickets.filter(ticket => ticket.location === section);
+        });
+        return grouped;
+    }, [tickets]);
+
     const toggleSection = (label: string) => {
         setOpenSections(prev => ({
             ...prev,
             [label]: !prev[label],
         }));
     };
+
+    console.log('Tickets:', ticketsBySection);
 
     return (
         <ScrollView style={styles.container}>
@@ -195,7 +205,18 @@ const SchedulePage: React.FC = () => {
                     </TouchableOpacity>
                     {openSections[label] && (
                         <View style={styles.sectionContent}>
-                            {tickets.map((ticket) => <Text key={ticket.id} >{ticket.po}</Text>) || <Text style={styles.placeholder}>No {label} tickets.</Text>}
+                            {ticketsBySection[label] && ticketsBySection[label].length > 0 ? (
+                                ticketsBySection[label].map(ticket => (
+                                    <View key={ticket.id} style={{ marginBottom: 12 }}>
+                                        <Text style={{ fontWeight: 'bold', color: colors.text }}>{ticket.orderDescription}</Text>
+                                        <Text style={{ color: colors.text }}>PO: {ticket.po} | CO: {ticket.co}</Text>
+                                        <Text style={{ color: colors.text }}>Color: {ticket.color}</Text>
+                                        <Text style={{ color: colors.text }}>Notes: {ticket.notes}</Text>
+                                    </View>
+                                ))
+                            ) : (
+                                <Text style={styles.placeholder}>No tickets in this section.</Text>
+                            )}
                         </View>
                     )}
                 </View>
