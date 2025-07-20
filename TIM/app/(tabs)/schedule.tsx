@@ -3,6 +3,9 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-nati
 import { useTheme, ThemeProvider } from '@react-navigation/native';
 import '../../assets/styles/schedule_styles.css';
 
+import TicketCard from '../../components/TicketCard';
+import { Ticket } from '../../constants/Ticket';
+
 const sections = [
     'Upcoming',
     'Blast',
@@ -66,114 +69,138 @@ const SchedulePage: React.FC = () => {
     // const tickets = fetch('https://BROKEN_URL/api/tickets')
     //     .then(res => res.json())
 
-    const tickets = useMemo(() => [
+    const tickets = useMemo((): Ticket[] => [
         {
-            id: 1,
+            id: '1',
             po: 'PO1001',
             co: 'CO2001',
             location: 'Upcoming',
             notes: 'Urgent delivery',
             color: 'Red',
-            orderDescription: 'Powder coating for frames',
+            description: 'Powder coating for frames',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'intec',
         },
         {
-            id: 2,
+            id: '2',
             po: 'PO1002',
             co: 'CO2002',
             location: 'Upcoming',
             notes: 'Requires masking',
             color: 'Blue',
-            orderDescription: 'Blast and mask panels',
+            description: 'Blast and mask panels',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'john',
         },
         {
-            id: 3,
+            id: '3',
             po: 'PO1003',
             co: 'CO2003',
             location: 'Upcoming',
             notes: 'Handle with care',
             color: 'Green',
-            orderDescription: 'Garnet blast for pipes',
+            description: 'Garnet blast for pipes',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'custom fence',
         },
         {
-            id: 4,
+            id: '4',
             po: 'PO1004',
             co: 'CO2004',
             location: 'Blast',
             notes: 'Check for defects',
             color: 'Yellow',
-            orderDescription: 'Cabinet wash for parts',
+            description: 'Cabinet wash for parts',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'intec',
         },
         {
-            id: 5,
+            id: '5',
             po: 'PO1005',
             co: 'CO2005',
             location: 'Blast',
             notes: 'Invoice pending',
             color: 'Black',
-            orderDescription: 'Powder coat brackets',
+            description: 'Powder coat brackets',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'john',
         },
         {
-            id: 6,
+            id: '6',
             po: 'PO1006',
             co: 'CO2006',
             location: 'Wash',
             notes: 'Rush order',
             color: 'White',
-            orderDescription: 'Masking and powder coat',
+            description: 'Masking and powder coat',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'custom fence',
         },
         {
-            id: 7,
+            id: '7',
             po: 'PO1007',
             co: 'CO2007',
             location: 'Wash',
             notes: 'Special color mix',
             color: 'Orange',
-            orderDescription: 'Blast and powder coat',
+            description: 'Blast and powder coat',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'intec',
         },
         {
-            id: 8,
+            id: '8',
             po: 'PO1008',
             co: 'CO2008',
             location: 'Masking',
             notes: 'Customer pickup',
             color: 'Purple',
-            orderDescription: 'Wash and takedown',
+            description: 'Wash and takedown',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'john',
         },
         {
-            id: 9,
+            id: '9',
             po: 'PO1009',
             co: 'CO2009',
             location: 'Powder',
             notes: 'Fragile',
             color: 'Pink',
-            orderDescription: 'Cabinet and powder',
+            description: 'Cabinet and powder',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'custom fence',
         },
         {
-            id: 10,
+            id: '10',
             po: 'PO1010',
             co: 'CO2010',
             location: 'Powder',
             notes: 'Needs inspection',
             color: 'Gray',
-            orderDescription: 'Masking for rails',
+            description: 'Masking for rails',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'intec',
         },
         {
-            id: 11,
+            id: '11',
             po: 'PO1011',
             co: 'CO2011',
             location: 'Takedown',
             notes: 'Awaiting materials',
             color: 'Brown',
-            orderDescription: 'Blast and invoice',
+            description: 'Blast and invoice',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'john',
         },
         {
-            id: 12,
+            id: '12',
             po: 'PO1012',
             co: 'CO2012',
             location: 'Takedown',
             notes: 'Ready for shipment',
             color: 'Cyan',
-            orderDescription: 'Powder coat and takedown',
+            description: 'Powder coat and takedown',
+            createdAt: '2024-06-01T10:00:00Z',
+            customerName: 'custom fence',
         }
     ], []);
 
@@ -192,8 +219,6 @@ const SchedulePage: React.FC = () => {
         }));
     };
 
-    console.log('Tickets:', ticketsBySection);
-
     return (
         <ScrollView style={styles.container}>
             <Text style={styles.header}>Schedule</Text>
@@ -207,12 +232,7 @@ const SchedulePage: React.FC = () => {
                         <View style={styles.sectionContent}>
                             {ticketsBySection[label] && ticketsBySection[label].length > 0 ? (
                                 ticketsBySection[label].map(ticket => (
-                                    <View key={ticket.id} style={{ marginBottom: 12 }}>
-                                        <Text style={{ fontWeight: 'bold', color: colors.text }}>{ticket.orderDescription}</Text>
-                                        <Text style={{ color: colors.text }}>PO: {ticket.po} | CO: {ticket.co}</Text>
-                                        <Text style={{ color: colors.text }}>Color: {ticket.color}</Text>
-                                        <Text style={{ color: colors.text }}>Notes: {ticket.notes}</Text>
-                                    </View>
+                                    <TicketCard key={ticket.id} ticket={ticket} />
                                 ))
                             ) : (
                                 <Text style={styles.placeholder}>No tickets in this section.</Text>
