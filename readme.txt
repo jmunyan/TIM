@@ -3,19 +3,21 @@ Total Inventory Management (TIM)
 Goals: 
     Primary: 
         Create an inventory management system capable of tracking items, their position in storage, and their associated jobs
+        this has shifted to be more about the jobs than the inventory due to current/future needs.
 
     Secondary:
-        stay up to date on software development skills and put something on my personal GitHub for employers to see
+        stay up to date on software development skills and put something on my personal GitHub for potential employers to see
 
 Requirements:
     Security: 
-        has working passwords and tokens, with future proofed components that allow for use of third party sign-in (eg google or other company email parameters)
-        can be launched in a private local subnet
+        has working passwords and tokens (OAUTH 2.0), with future proofed components that allow for use of third party sign-in (eg google or other company email parameters)
+        can be launched in a private local subnet or hosted on a server
         separate user accounts with 2 or more levels of user permissions
             possibly make it company specific what they're called, put requirements below with potential names
             admin/1 - can do what they want
-            office/2 - data entry for jobs and inventory but no company parameters
-            recieving/3 - data entry for inventory but not for jobs. (can link to already created jobs)
+            manager/2 - can do anything except change company parameters
+            captain/3 - can use all job related tools except to remove/create jobs
+            worker/4 - can update jobs but nothing else, can add notes but cannot edit them
     
     UI: 
         excel type data entry for actual inventory (PrimeReact DataGrid or something similar)
@@ -65,8 +67,9 @@ To Do List:
     - plan features
         - brainstorm useful and necessary features [DONE]
         - create prioritized list of wanted features
-    - research what API/Database to use (likely Ruby on Rails since a lot of employers seem to be asking for it)
-    - research best library to use (React vs. Next etc.)
+    - research what API/Database to use (likely Ruby on Rails since a lot of employers seem to be asking for it) [DONE]
+        - using ruby on rails
+    - research best Framework to use (React vs. Next etc.) [DONE]
     - create page layout
     - create settings pages
         - user settings
