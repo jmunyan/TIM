@@ -3,11 +3,13 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Ticket } from '../constants/Ticket';
 import { useTheme } from '@react-navigation/native';
 import { ThemedText } from './ThemedText';
+import { useRouter } from 'expo-router';
 
 
 
 export default function TicketCard({ ticket }: { ticket: Ticket }) {
     const { colors } = useTheme();
+    const router = useRouter();
 
     const styles = StyleSheet.create({
         container: {
@@ -39,6 +41,7 @@ export default function TicketCard({ ticket }: { ticket: Ticket }) {
             <ThemedText>Location: {ticket.location}</ThemedText>
             <ThemedText>Color: {ticket.color}</ThemedText>
             <ThemedText>Notes: {ticket.notes}</ThemedText>
+            <button onClick={() => router.push(`/ticket/${ticket.id}`)} >go to ticket</button>
         </View>
     );
 }
