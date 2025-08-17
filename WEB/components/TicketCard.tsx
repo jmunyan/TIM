@@ -17,7 +17,7 @@ export default function TicketCard({ ticket }: { ticket: Ticket }) {
             padding: 10,
             borderWidth: 1,
             borderColor: colors.border,
-            borderRadius: 8,
+            borderRadius: 8, 
             backgroundColor: colors.card,
             color: colors.text,
         },
@@ -37,10 +37,10 @@ export default function TicketCard({ ticket }: { ticket: Ticket }) {
                 <ThemedText type='subsubtitle' >PO: {ticket.po}</ThemedText>
             </View>
             <ThemedText style={{ fontWeight: 'bold', fontSize: 16, marginBottom: 4 }}>{ticket.description}</ThemedText>
-            <ThemedText>PO: {ticket.po} | CO: {ticket.co || '--'}</ThemedText>
+            <ThemedText>PO: {ticket.po} | CO: {ticket.co || '--'}</ThemedText> 
             <ThemedText>Location: {ticket.location}</ThemedText>
             <ThemedText>Color: {ticket.color}</ThemedText>
-            <ThemedText>Notes: {ticket.notes}</ThemedText>
+            <ThemedText>Notes: {ticket.notes}</ThemedText> 
             <button onClick={() => router.push(`/ticket/${ticket.id}`)} >go to ticket</button>
         </View>
     );

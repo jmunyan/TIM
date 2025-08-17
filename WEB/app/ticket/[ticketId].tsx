@@ -10,9 +10,11 @@ export default function TicketDetails() {
     // Fetch the ticket details using the ticketId
     // This could be a call to an API or a local database
 
+    console.log('Ticket ID:', ticketId);
+
     return (
-        <View>
-            <Text>Details for Ticket ID: {ticketId}</Text>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
+            <Text style={{ color: 'white' }}>Details for Ticket ID: {ticketId}</Text>
         </View>
     );
 }

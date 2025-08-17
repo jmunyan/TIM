@@ -1,0 +1,2 @@
+echo "Starting Chromium in kiosk mode..."
+chromium --start-fullscreen --app="https://drive.google.com/drive/folders/1fwmyBGCLWtqj9Qj5nIgJ5-Z1_jsO3w01?usp=sharing" --no-sandbox --disable-extensions --kiosk
