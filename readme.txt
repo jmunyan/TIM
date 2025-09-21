@@ -6,7 +6,7 @@ Goals:
         this has shifted to be more about the jobs than the inventory due to current/future needs.
 
     Secondary:
-        stay up to date on software development skills and put something on my personal GitHub for potential employers to see
+        John Munyan - stay up to date on software development skills and put something on my personal GitHub for potential employers to see. 
 
 Requirements:
     Security: 
@@ -60,6 +60,7 @@ To Do List:
     - create repo [DONE]
     - create initial project plan [DONE]
     - find free project management software and set up a project
+        - started using Jira, as it's free for single user teams, but it was a little too feature rich, might try something simpler.
         - track hours with clockify (this first hour was not tracked)
         - GitHub has some features that are free?
         - is Bitbucket free to individuals? Jira is, still haven't checked bitbucket
@@ -70,6 +71,8 @@ To Do List:
     - research what API/Database to use (likely Ruby on Rails since a lot of employers seem to be asking for it) [DONE]
         - using ruby on rails
     - research best Framework to use (React vs. Next etc.) [DONE]
+
+    WEB
     - create page layout
     - create settings pages
         - user settings
@@ -79,7 +82,18 @@ To Do List:
         - develop more specific job wizard requirements
         - make page to match those requirements
     - create job editor
+        - page/route made, but doesn't have editing capabilities
     - create additional test data
     - create auditing tools
         - print template (also useable for job quoting?)
         - how should it be formatted?
+    - finish "schedule" page 
+
+    - create launch scripts/instructions for other contributors
+        - docker? (that's what I have seen used in the past)
+        - research other container options
+
+    API
+    - there's a lot to do here, but first lets plan the database
+    - make 
+    
