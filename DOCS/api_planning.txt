@@ -1,0 +1,79 @@
+Organization
+- id
+- name
+- address?
+- has many
+	- areas
+	- users
+	- customers
+
+areas
+- id
+- map_file (jpg to show actual location?)
+- name
+- has many
+	- task_types
+
+user
+- id
+- name
+- phone number? (for verification)
+- has one
+	- organization (may make it possible to have multiple orgs later)
+	- area
+	- username
+	- password
+	- user_level (fixed list, define in controller)
+
+user_level [
+	"admin",
+	"captain",
+	"production",
+]
+
+customer
+- id
+- name
+- address
+- has many
+	- jobs (discrete)
+
+job
+- id
+- ticket_no (sequential int)
+- created (date)
+- completed (Boolean) (may want both, may only need one. )
+- completed_on (date) (^)
+- powder_used (float)
+- has one
+	- customer
+	- color
+	- area
+- has many
+	- tasks
+		- tasks not discrete
+	- 
+
+task
+- id
+- start
+- stopped
+- has one
+	- job
+	- task_type
+- has many
+	- punch
+
+task_type (these shouldn't be picky, put this in with areas in the org settings)
+- id
+- name
+- description
+- has_one
+	- area (probably just pulling this with the area)
+
+punch
+- id
+- time
+- has one
+	- user
+
