@@ -42,7 +42,7 @@ job
 - id
 - ticket_no (sequential int)
 - created (date)
-- completed (Boolean) (may want both, may only need one. )
+- completed (Boolean) (may want both, may only need one)
 - completed_on (date) (^)
 - powder_used (float)
 - has one
@@ -76,4 +76,3 @@ punch
 - time
 - has one
 	- user
-

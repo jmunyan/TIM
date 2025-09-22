@@ -1,0 +1,44 @@
+import React from 'react';
+
+import { useThemeColor } from '@/hooks/useThemeColor';
+
+type ButtonProps = {
+    label: string;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    bst?: 'primary' | 'secondary' | 'danger';
+};
+
+const ThemedButton: React.FC<ButtonProps> = ({ label, onClick, bst }) => {
+    const isDark: string = useThemeColor({ light: 'true', dark: '' }, 'text');
+
+    const bgColorLight = {
+        primary: '#225edeff',
+        secondary: '#777777ff',
+        danger: '#d32f2fff',
+    };
+    const bgColorDark = {
+        primary: '#194198ff',
+        secondary: '#555555ff',
+        danger: '#b00020ff',
+    };
+    
+    return (
+        <button
+            onClick={onClick}
+            style={{
+                borderRadius: '5px',
+                backgroundColor: isDark ? bgColorDark[bst || 'primary'] : bgColorLight[bst || 'primary'],
+                color: '#fff',
+                padding: '0.5rem 1rem',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s',
+            }}
+            className="ui-button"
+        >
+            {label}
+        </button>
+    );
+}
+
+export default ThemedButton;

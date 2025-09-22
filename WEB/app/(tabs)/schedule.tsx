@@ -219,6 +219,12 @@ const SchedulePage: React.FC = () => {
         }));
     };
 
+    const openSendDialog = (ticket: Ticket) => {
+        // Open dialog to select section to send ticket to
+        // On selection, update ticket location via API call
+        alert(`Send ticket ${ticket.id} to another section (functionality not implemented).`);
+    }
+
     return (
         <ScrollView style={styles.container}>
             <Text style={styles.header}>Schedule</Text>
@@ -232,7 +238,7 @@ const SchedulePage: React.FC = () => {
                         <View style={styles.sectionContent}>
                             {ticketsBySection[label] && ticketsBySection[label].length > 0 ? (
                                 ticketsBySection[label].map(ticket => (
-                                    <TicketCard key={ticket.id} ticket={ticket} />
+                                    <TicketCard key={ticket.id} ticket={ticket} sendToAction={() => openSendDialog(ticket)} />
                                 ))
                             ) : (
                                 <Text style={styles.placeholder}>No tickets in this section.</Text>

@@ -4,10 +4,11 @@ import { Ticket } from '../constants/Ticket';
 import { useTheme } from '@react-navigation/native';
 import { ThemedText } from './ThemedText';
 import { useRouter } from 'expo-router';
+import ThemedButton from './ThemedButton';
 
 
 
-export default function TicketCard({ ticket }: { ticket: Ticket }) {
+export default function TicketCard({ ticket, sendToAction }: { ticket: Ticket, sendToAction: (ticket: Ticket) => void }) {
     const { colors } = useTheme();
     const router = useRouter();
 
@@ -41,7 +42,8 @@ export default function TicketCard({ ticket }: { ticket: Ticket }) {
             <ThemedText>Location: {ticket.location}</ThemedText>
             <ThemedText>Color: {ticket.color}</ThemedText>
             <ThemedText>Notes: {ticket.notes}</ThemedText> 
-            <button onClick={() => router.push(`/ticket/${ticket.id}`)} >go to ticket</button>
+            <ThemedButton label='Go To Ticket' onClick={() => router.push(`/ticket/${ticket.id}`)} />
+            <ThemedButton label='Send To' onClick={() => sendToAction(ticket)} />
         </View>
     );
 }

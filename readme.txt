@@ -95,5 +95,8 @@ To Do List:
 
     API
     - there's a lot to do here, but first lets plan the database
-    - make 
+    - make a lucidchart of the tables
+    - create migrations in ruby
+    - update controllers to 
+    - create testing for the 
     

@@ -6,11 +6,6 @@ import { useLocalSearchParams, useGlobalSearchParams, Link } from 'expo-router';
 
 export default function TicketDetails() {
     const { ticketId } = useLocalSearchParams();
-    
-    // Fetch the ticket details using the ticketId
-    // This could be a call to an API or a local database
-
-    console.log('Ticket ID:', ticketId);
 
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
