@@ -71,23 +71,44 @@ To Do List:
     - research what API/Database to use (likely Ruby on Rails since a lot of employers seem to be asking for it) [DONE]
         - using ruby on rails
     - research best Framework to use (React vs. Next etc.) [DONE]
+    - research websockets, up to date information is essential to a production scenario. [STARTED]
+        - https://guides.rubyonrails.org/action_cable_overview.html
 
     WEB
-    - create page layout
-    - create settings pages
-        - user settings
-        - organization settings
+    - create page layout/styling
+        - soften background on dark mode
+        - add 'ThemedButton' colors to the actual Theme
+        - fix dark/light mode theme change button issues
+        - integrate initial state of d/l theme with browser settings
+        - menu button doesn't shift when the scroll bar opens
+    - create settings pages [STARTED]
+        - main page file and routing added [DONE]
+        - add two sections to the main page
+            - user settings
+            - organization settings 
     - create inventory page
     - create job wizard
         - develop more specific job wizard requirements
         - make page to match those requirements
     - create job editor
         - page/route made, but doesn't have editing capabilities
+    - create a job page for each section
+        - upcoming
+        - blast
+        - garnet
+        - cabinet
+        - prep? or should we make it prep/wash?
+        - masking
+        - powder
+        - takedown
     - create additional test data
     - create auditing tools
         - print template (also useable for job quoting?)
         - how should it be formatted?
     - finish "schedule" page 
+        - move job dialog created but not styled
+        - need to test dialog size styling on phone
+        - 
 
     - create launch scripts/instructions for other contributors
         - docker? (that's what I have seen used in the past)
