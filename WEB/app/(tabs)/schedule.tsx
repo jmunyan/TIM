@@ -2,9 +2,11 @@ import React, { useState, useMemo } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { useTheme, ThemeProvider } from '@react-navigation/native';
 import '../../assets/styles/schedule_styles.css';
+import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 import TicketCard from '../../components/TicketCard';
 import { Ticket } from '../../constants/Ticket';
+import MoveTicketDialog from '@/components/Dialogs/MoveTicketDialog';
 
 const sections = [
     'Upcoming',
@@ -21,6 +23,9 @@ const sections = [
 const SchedulePage: React.FC = () => {
     const { colors } = useTheme();
     const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
+
+    const [isMvTktDlgOpen, setIsMvTktDlgOpen] = useState(false);
+    const [currentTicket, setCurrentTicket] = useState<Ticket | null>(null);
 
     const styles = StyleSheet.create({
         container: {
@@ -220,34 +225,48 @@ const SchedulePage: React.FC = () => {
     };
 
     const openSendDialog = (ticket: Ticket) => {
-        // Open dialog to select section to send ticket to
-        // On selection, update ticket location via API call
-        alert(`Send ticket ${ticket.id} to another section (functionality not implemented).`);
+        setCurrentTicket(ticket);
+        setIsMvTktDlgOpen(true);
     }
 
     return (
-        <ScrollView style={styles.container}>
-            <Text style={styles.header}>Schedule</Text>
-            {sections.map(label => (
-                <View key={label} style={styles.section}>
-                    <TouchableOpacity className='section-header' onPress={() => toggleSection(label)} style={styles.sectionHeader} >
-                        <Text style={styles.sectionHeaderText}>{label}</Text>
-                        <Text style={styles.arrow}>{openSections[label] ? '▲' : '▼'}</Text>
-                    </TouchableOpacity>
-                    {openSections[label] && (
-                        <View style={styles.sectionContent}>
-                            {ticketsBySection[label] && ticketsBySection[label].length > 0 ? (
-                                ticketsBySection[label].map(ticket => (
-                                    <TicketCard key={ticket.id} ticket={ticket} sendToAction={() => openSendDialog(ticket)} />
-                                ))
-                            ) : (
-                                <Text style={styles.placeholder}>No tickets in this section.</Text>
-                            )}
-                        </View>
-                    )}
-                </View>
-            ))}
-        </ScrollView>
+        <>
+            <ScrollView style={styles.container}>
+                <Text style={styles.header}>Schedule</Text>
+                {sections.map(label => (
+                    <View key={label} style={styles.section}>
+                        <TouchableOpacity className='section-header' onPress={() => toggleSection(label)} style={styles.sectionHeader} >
+                            <Text style={styles.sectionHeaderText}>{label}</Text>
+                            <Text style={styles.arrow}>{openSections[label] ? '▲' : '▼'}</Text>
+                        </TouchableOpacity>
+                        {openSections[label] && (
+                            <View style={styles.sectionContent}>
+                                {ticketsBySection[label] && ticketsBySection[label].length > 0 ? (
+                                    ticketsBySection[label].map(ticket => (
+                                        <TicketCard key={ticket.id} ticket={ticket} sendToAction={() => openSendDialog(ticket)} />
+                                    ))
+                                ) : (
+                                    <Text style={styles.placeholder}>No tickets in this section.</Text>
+                                )}
+                            </View>
+                        )}
+                    </View>
+                ))}
+            </ScrollView>
+            <MoveTicketDialog 
+                isVisible={isMvTktDlgOpen} 
+                onCancel={() => setIsMvTktDlgOpen(false)}
+                onSubmit={() => {
+                    // Call API to move ticket
+                    setIsMvTktDlgOpen(false);
+                }}
+                onChange={(newValue, field) => {
+                    // Handle section change
+                    setCurrentTicket(prev => prev ? { ...prev, [field]: newValue } : prev);
+                }}
+                currentTicket={currentTicket}
+            />
+        </>
     );
 };
 

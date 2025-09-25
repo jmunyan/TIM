@@ -6,20 +6,21 @@ type ButtonProps = {
     label: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
     bst?: 'primary' | 'secondary' | 'danger';
+    style?: React.CSSProperties;
 };
 
-const ThemedButton: React.FC<ButtonProps> = ({ label, onClick, bst }) => {
+const ThemedButton: React.FC<ButtonProps> = ({ label, onClick, bst, style }) => {
     const isDark: string = useThemeColor({ light: 'true', dark: '' }, 'text');
 
     const bgColorLight = {
         primary: '#225edeff',
         secondary: '#777777ff',
-        danger: '#d32f2fff',
+        danger: '#c66464ff',
     };
     const bgColorDark = {
         primary: '#194198ff',
         secondary: '#555555ff',
-        danger: '#b00020ff',
+        danger: '#b92742ff',
     };
     
     return (
@@ -33,6 +34,7 @@ const ThemedButton: React.FC<ButtonProps> = ({ label, onClick, bst }) => {
                 border: 'none',
                 cursor: 'pointer',
                 transition: 'background-color 0.2s',
+                ...style
             }}
             className="ui-button"
         >

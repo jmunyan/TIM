@@ -27,7 +27,7 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="ticket/[ticketId]" options={ ({route}) => ({ title: route?.params?.ticketId ? `Ticket #${route?.params?.ticketId}` : 'Ticket Not Found' })} />
           <Stack.Screen name="new-ticket" options={{ title: 'New Ticket' }} />
-          <Stack.Screen name="settings" options={{ title: 'Settings' }} />
+          <Stack.Screen name="settings/[userId]" options={{ title: 'Settings' }} />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />

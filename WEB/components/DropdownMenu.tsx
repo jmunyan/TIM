@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native';
+import { useRouter } from 'expo-router';
 
 const DropdownMenu: React.FC = () => {
   const [open, setOpen] = useState(false);
-    const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme();
+  const router = useRouter();
 
   return (
     <View style={styles.container} pointerEvents="box-none">
@@ -39,7 +41,7 @@ const DropdownMenu: React.FC = () => {
               style={styles.menuItem}
               onPress={() => {
                 setOpen(false);
-                // Handle Profile navigation
+                router.push(`/settings/1`);
               }}
             >
               <Text style={styles.menuText}>Settings</Text>

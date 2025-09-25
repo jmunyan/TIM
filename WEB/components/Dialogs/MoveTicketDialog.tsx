@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import { Dialog } from "PrimeReact/dialog";
-import { Dropdown } from "PrimeReact/dropdown";
+import { Dialog } from 'primereact/dialog';
+import { Dropdown } from 'primereact/dropdown';
+import DialogFooter from "./DialogFooter";
 
-export default function MoveTicketDialog() {
-    const [visible, setVisible] = React.useState(true);
+export default function MoveTicketDialog({isVisible, onCancel, currentTicket, onChange, onSubmit}: {isVisible: boolean, onCancel: () => void, currentTicket?: any, onChange?: (value: any) => void, onSubmit?: () => void}) {
 
     // API call to get list of sections
     const sections = [
@@ -20,8 +20,9 @@ export default function MoveTicketDialog() {
     ];
 
     return (
-        <Dialog header="Move Ticket" visible={visible} style={{ width: '50vw' }} onHide={() => setVisible(false)}>
+        <Dialog header="Move Ticket" footer={<DialogFooter onCancel={onCancel} onSubmit={onSubmit} />} visible={isVisible} style={{ width: '50vw' }} >
             <Dropdown options={sections} />
+            
         </Dialog>
     );
 }
