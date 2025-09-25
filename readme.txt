@@ -24,7 +24,7 @@ Requirements:
         tracks: 
             purchase and sale price of part, 
             date acquired, 
-            person who entered the information (including MAC?),
+            person who entered the information,
         organization parameters as necessary
         scales for use on a mobile browser
         light and dark mode
@@ -110,7 +110,7 @@ To Do List:
         - need to test dialog size styling on phone
         - 
 
-    - create launch scripts/instructions for other contributors
+    - create launch scripts/instructions for possible other contributors
         - docker? (that's what I have seen used in the past)
         - research other container options
 
@@ -118,6 +118,6 @@ To Do List:
     - there's a lot to do here, but first lets plan the database
     - make a lucidchart of the tables
     - create migrations in ruby
-    - update controllers to 
-    - create testing for the 
+    - update controllers
+    - create testing
     
