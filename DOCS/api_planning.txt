@@ -1,7 +1,7 @@
 Organization
 - id
 - name
-- address?
+- address
 - has many
 	- areas
 	- users
@@ -13,11 +13,20 @@ areas
 - name
 - has many
 	- task_types
+	- links
+
+link
+- id
+- name
+- description?
+- value
+- has many
+	- areas
 
 user
 - id
 - name
-- phone number? (for verification)
+- phone number
 - has one
 	- organization (may make it possible to have multiple orgs later)
 	- area
@@ -36,7 +45,7 @@ customer
 - name
 - address
 - has many
-	- jobs (discrete)
+	- jobs
 
 job
 - id
@@ -47,17 +56,14 @@ job
 - powder_used (float)
 - has one
 	- customer
-	- color
 	- area
 - has many
 	- tasks
 		- tasks not discrete
-	- 
+	- colors
 
 task
 - id
-- start
-- stopped
 - has one
 	- job
 	- task_type
@@ -69,10 +75,20 @@ task_type (these shouldn't be picky, put this in with areas in the org settings)
 - name
 - description
 - has_one
-	- area (probably just pulling this with the area)
+	- area
 
 punch
 - id
 - time
 - has one
 	- user
+
+color
+- id
+- name
+- colorCode
+- brand
+- powderInStock
+- powderOnOrder
+- has one
+	- customer?
