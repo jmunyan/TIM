@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 import { useRouter } from 'expo-router';
@@ -8,6 +8,7 @@ import "primereact/resources/themes/lara-light-cyan/theme.css";
 import TicketCard from '../../components/TicketCard';
 import { Ticket } from '../../constants/Ticket';
 import MoveTicketDialog from '@/components/Dialogs/MoveTicketDialog';
+import { useAuth } from '@/context/auth';
 
 const sections = [
     'Upcoming',
@@ -24,144 +25,124 @@ const sections = [
 const SchedulePage: React.FC = () => {
     const { colors } = useTheme();
     const router = useRouter();
+    const { token, authFetch, user } = useAuth();
     const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
 
     const [isMvTktDlgOpen, setIsMvTktDlgOpen] = useState(false);
     const [currentTicket, setCurrentTicket] = useState<Ticket | null>(null);
-    const [tickets, setTickets] = useState<Ticket[]>(() => [
-        {
-            id: '1',
-            po: 'PO1001',
-            co: 'CO2001',
-            location: 'Upcoming',
-            notes: 'Urgent delivery',
-            color: 'Red',
-            description: 'Powder coating for frames',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'intec',
+    const [tickets, setTickets] = useState<Ticket[]>([]);
+
+    useEffect(() => {
+        if (!token) return;
+        authFetch('/api/jobs')
+            .then(res => res.json())
+            .then(data => {
+                const mappedTickets: Ticket[] = data.jobs.map(job => ({
+                    id: job.id.toString(),
+                    po: `PO${job.ticket_no}`,
+                    co: `CO${job.ticket_no}`,
+                    location: job.location,
+                    notes: job.notes,
+                    color: job.color,
+                    description: job.description,
+                    createdAt: job.created_at,
+                    customerName: job.customer_name,
+                }));
+                setTickets(mappedTickets);
+            })
+            .catch(err => console.error('Failed to fetch jobs:', err));
+    }, [token, authFetch]);
+
+    useEffect(() => {
+        if (!token || !user) return;
+
+        const ws = new WebSocket(`ws://localhost:3000/cable?token=${token}`); // Adjust URL for production
+
+        ws.onopen = () => {
+            console.log('WebSocket connected');
+            ws.send(JSON.stringify({
+                command: 'subscribe',
+                identifier: JSON.stringify({
+                    channel: 'ScheduleChannel'
+                })
+            }));
+        };
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            if (data.type === 'ping') return; // Ignore pings
+            if (data.message && data.message.type === 'job_updated') {
+                // Update tickets state with new job data
+                setTickets(prev => {
+                    const updated = prev.map(ticket =>
+                        ticket.id === data.message.job.id.toString() ? { ...ticket, ...data.message.job } : ticket
+                    );
+                    return updated;
+                });
+            }
+        };
+
+        ws.onclose = () => console.log('WebSocket disconnected');
+
+        return () => ws.close();
+    }, [token, user]);
+
+    const styles = StyleSheet.create({
+
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+            padding: 16,
+            backgroundColor: colors.background,
         },
-        {
-            id: '2',
-            po: 'PO1002',
-            co: 'CO2002',
-            location: 'Upcoming',
-            notes: 'Requires masking',
-            color: 'Blue',
-            description: 'Blast and mask panels',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'john',
+        header: {
+            fontSize: 28,
+            fontWeight: 'bold',
+            marginBottom: 24,
+            color: colors.text,
         },
-        {
-            id: '3',
-            po: 'PO1003',
-            co: 'CO2003',
-            location: 'Upcoming',
-            notes: 'Handle with care',
-            color: 'Green',
-            description: 'Garnet blast for pipes',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'custom fence',
+        section: {
+            marginBottom: 12,
+            borderRadius: 8,
+            backgroundColor: colors.card,
+            overflow: 'hidden',
         },
-        {
-            id: '4',
-            po: 'PO1004',
-            co: 'CO2004',
-            location: 'Blast',
-            notes: 'Check for defects',
-            color: 'Yellow',
-            description: 'Cabinet wash for parts',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'intec',
+        sectionHeader: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: 16,
+            backgroundColor: colors.border,
         },
-        {
-            id: '5',
-            po: 'PO1005',
-            co: 'CO2005',
-            location: 'Blast',
-            notes: 'Invoice pending',
-            color: 'Black',
-            description: 'Powder coat brackets',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'john',
+        sectionHeaderText: {
+            fontSize: 18,
+            fontWeight: '600',
+            color: colors.text,
         },
-        {
-            id: '6',
-            po: 'PO1006',
-            co: 'CO2006',
-            location: 'Wash',
-            notes: 'Rush order',
-            color: 'White',
-            description: 'Masking and powder coat',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'custom fence',
+        arrow: {
+            fontSize: 18,
+            color: colors.text,
         },
-        {
-            id: '7',
-            po: 'PO1007',
-            co: 'CO2007',
-            location: 'Wash',
-            notes: 'Special color mix',
-            color: 'Orange',
-            description: 'Blast and powder coat',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'intec',
+        sectionContent: {
+            padding: 16,
+            backgroundColor: colors.background,
         },
-        {
-            id: '8',
-            po: 'PO1008',
-            co: 'CO2008',
-            location: 'Masking',
-            notes: 'Customer pickup',
-            color: 'Purple',
-            description: 'Wash and takedown',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'john',
+        placeholder: {
+            color: colors.notification,
+            fontStyle: 'italic',
         },
-        {
-            id: '9',
-            po: 'PO1009',
-            co: 'CO2009',
-            location: 'Powder',
-            notes: 'Fragile',
-            color: 'Pink',
-            description: 'Cabinet and powder',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'custom fence',
+        newTicketButton: {
+            borderRadius: 10,
+            paddingVertical: 10,
+            paddingHorizontal: 16,
+            marginBottom: 16,
+            alignSelf: 'flex-start',
         },
-        {
-            id: '10',
-            po: 'PO1010',
-            co: 'CO2010',
-            location: 'Powder',
-            notes: 'Needs inspection',
-            color: 'Gray',
-            description: 'Masking for rails',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'intec',
+        newTicketButtonText: {
+            color: '#fff',
+            fontWeight: '700',
         },
-        {
-            id: '11',
-            po: 'PO1011',
-            co: 'CO2011',
-            location: 'Takedown',
-            notes: 'Awaiting materials',
-            color: 'Brown',
-            description: 'Blast and invoice',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'john',
-        },
-        {
-            id: '12',
-            po: 'PO1012',
-            co: 'CO2012',
-            location: 'Takedown',
-            notes: 'Ready for shipment',
-            color: 'Cyan',
-            description: 'Powder coat and takedown',
-            createdAt: '2024-06-01T10:00:00Z',
-            customerName: 'custom fence',
-        }
-    ]);
+    });
 
     const styles = StyleSheet.create({
         container: {
