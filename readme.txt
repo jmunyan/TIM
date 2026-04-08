@@ -1,5 +1,8 @@
 Total Inventory Management (TIM)
 
+TLDR
+90% of the planning is done, work on the pages started.
+
 Goals: 
     Primary: 
         Create an inventory management system capable of tracking items, their position in storage, and their associated jobs
