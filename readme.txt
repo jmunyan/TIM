@@ -56,7 +56,7 @@ Requirements:
         
 
 To Do List: 
-    everything. :OneStepPlanToConquerTheUniverse:
+    everything. :OneStepPlanToConquerTheUniverse: :rotfl:
     - create repo [DONE]
     - create initial project plan [DONE]
     - find free project management software and set up a project
@@ -76,17 +76,35 @@ To Do List:
 
     WEB
     - create page layout/styling
-        - soften background on dark mode
-        - add 'ThemedButton' colors to the actual Theme
-        - fix dark/light mode theme change button issues
-        - integrate initial state of d/l theme with browser settings
-        - menu button doesn't shift when the scroll bar opens
-    - create settings pages [STARTED]
+        - soften background on dark mode [IN PROGRESS]
+        - add 'ThemedButton' colors to the actual Theme [IN PROGRESS]
+        - fix dark/light mode theme change button issues [IN PROGRESS]
+        - integrate initial state of d/l theme with browser settings [DONE]
+        - menu button doesn't shift when the scroll bar opens causing overlap. move the button over so it fits nicely
+    - create settings pages [IN PROGRESS]
         - main page file and routing added [DONE]
         - add two sections to the main page
             - user settings
+                - save button at bottom of page [DONE]
+                - display name, email, and location fields added
             - organization settings 
+                - company name and default location fields added
     - create inventory page
+        - uses DataGrid component from PrimeReact
+        - grid style editor
+            - only 1 row to start, row added each time a row is added
+            - only 1 row active at a time
+            - button below the active row to 'add' it to the table
+            - columns:
+                - name (string)
+                - adj. amount (number)
+                - total (number)
+                - amount after adjustment (number)
+                - notes (string)
+            - the 'total' column should be uneditable
+        - save button below grid
+        - pulls limited data from api endpoint for searching, then pulls full data for item after it is selected from the limited search dataset
+        - only one row can be edited at a time
     - create job wizard
         - develop more specific job wizard requirements
         - make page to match those requirements
@@ -105,10 +123,10 @@ To Do List:
     - create auditing tools
         - print template (also useable for job quoting?)
         - how should it be formatted?
-    - finish "schedule" page 
-        - move job dialog created but not styled
+    - finish "schedule" page [IN PROGRESS]
+        - move job dialog created but not styled [DONE]
         - need to test dialog size styling on phone
-        - 
+        - schedule view now supports ticket grouping and move dialog flow
 
     - create launch scripts/instructions for possible other contributors
         - docker? (that's what I have seen used in the past)

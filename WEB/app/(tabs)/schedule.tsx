@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import { useTheme, ThemeProvider } from '@react-navigation/native';
+import { useTheme } from '@react-navigation/native';
+import { useRouter } from 'expo-router';
 import '../../assets/styles/schedule_styles.css';
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 
@@ -22,59 +23,12 @@ const sections = [
 
 const SchedulePage: React.FC = () => {
     const { colors } = useTheme();
+    const router = useRouter();
     const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
 
     const [isMvTktDlgOpen, setIsMvTktDlgOpen] = useState(false);
     const [currentTicket, setCurrentTicket] = useState<Ticket | null>(null);
-
-    const styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            padding: 16,
-            backgroundColor: colors.background,
-        },
-        header: {
-            fontSize: 28,
-            fontWeight: 'bold',
-            marginBottom: 24,
-            color: colors.text,
-        },
-        section: {
-            marginBottom: 12,
-            borderRadius: 8,
-            backgroundColor: colors.card,
-            overflow: 'hidden',
-        },
-        sectionHeader: {
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: 16,
-            backgroundColor: colors.border,
-        },
-        sectionHeaderText: {
-            fontSize: 18,
-            fontWeight: '600',
-            color: colors.text,
-        },
-        arrow: {
-            fontSize: 18,
-            color: colors.text,
-        },
-        sectionContent: {
-            padding: 16,
-            backgroundColor: colors.background,
-        },
-        placeholder: {
-            color: colors.notification,
-            fontStyle: 'italic',
-        },
-    });
-
-    // const tickets = fetch('https://BROKEN_URL/api/tickets')
-    //     .then(res => res.json())
-
-    const tickets = useMemo((): Ticket[] => [
+    const [tickets, setTickets] = useState<Ticket[]>(() => [
         {
             id: '1',
             po: 'PO1001',
@@ -207,7 +161,62 @@ const SchedulePage: React.FC = () => {
             createdAt: '2024-06-01T10:00:00Z',
             customerName: 'custom fence',
         }
-    ], []);
+    ]);
+
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+            padding: 16,
+            backgroundColor: colors.background,
+        },
+        header: {
+            fontSize: 28,
+            fontWeight: 'bold',
+            marginBottom: 24,
+            color: colors.text,
+        },
+        section: {
+            marginBottom: 12,
+            borderRadius: 8,
+            backgroundColor: colors.card,
+            overflow: 'hidden',
+        },
+        sectionHeader: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: 16,
+            backgroundColor: colors.border,
+        },
+        sectionHeaderText: {
+            fontSize: 18,
+            fontWeight: '600',
+            color: colors.text,
+        },
+        arrow: {
+            fontSize: 18,
+            color: colors.text,
+        },
+        sectionContent: {
+            padding: 16,
+            backgroundColor: colors.background,
+        },
+        placeholder: {
+            color: colors.notification,
+            fontStyle: 'italic',
+        },
+        newTicketButton: {
+            borderRadius: 10,
+            paddingVertical: 10,
+            paddingHorizontal: 16,
+            marginBottom: 16,
+            alignSelf: 'flex-start',
+        },
+        newTicketButtonText: {
+            color: '#fff',
+            fontWeight: '700',
+        },
+    });
 
     const ticketsBySection = useMemo(() => {
         const grouped: Record<string, typeof tickets> = {};
@@ -229,10 +238,28 @@ const SchedulePage: React.FC = () => {
         setIsMvTktDlgOpen(true);
     }
 
+    const handleMoveTicket = (destination: string, note: string) => {
+        if (!currentTicket) {
+            return;
+        }
+
+        setTickets(prev =>
+            prev.map(ticket =>
+                ticket.id === currentTicket.id
+                    ? { ...ticket, location: destination, notes: note || ticket.notes }
+                    : ticket
+            )
+        );
+        setIsMvTktDlgOpen(false);
+    };
+
     return (
         <>
             <ScrollView style={styles.container}>
                 <Text style={styles.header}>Schedule</Text>
+            <TouchableOpacity style={[styles.newTicketButton, { backgroundColor: colors.tint }]} onPress={() => router.push('/new-ticket')}>
+              <Text style={styles.newTicketButtonText}>Create New Ticket</Text>
+            </TouchableOpacity>
                 {sections.map(label => (
                     <View key={label} style={styles.section}>
                         <TouchableOpacity className='section-header' onPress={() => toggleSection(label)} style={styles.sectionHeader} >
@@ -253,17 +280,10 @@ const SchedulePage: React.FC = () => {
                     </View>
                 ))}
             </ScrollView>
-            <MoveTicketDialog 
-                isVisible={isMvTktDlgOpen} 
+            <MoveTicketDialog
+                isVisible={isMvTktDlgOpen}
                 onCancel={() => setIsMvTktDlgOpen(false)}
-                onSubmit={() => {
-                    // Call API to move ticket
-                    setIsMvTktDlgOpen(false);
-                }}
-                onChange={(newValue, field) => {
-                    // Handle section change
-                    setCurrentTicket(prev => prev ? { ...prev, [field]: newValue } : prev);
-                }}
+                onSubmit={handleMoveTicket}
                 currentTicket={currentTicket}
             />
         </>

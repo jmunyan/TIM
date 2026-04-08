@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { useTheme } from '@react-navigation/native';
 
 type ButtonProps = {
     label: string;
@@ -10,7 +9,8 @@ type ButtonProps = {
 };
 
 const ThemedButton: React.FC<ButtonProps> = ({ label, onClick, bst, style }) => {
-    const isDark: string = useThemeColor({ light: 'true', dark: '' }, 'text');
+    const { dark } = useTheme();
+    const isDark = dark;
 
     const bgColorLight = {
         primary: '#225edeff',
