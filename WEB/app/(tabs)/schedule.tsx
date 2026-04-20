@@ -87,62 +87,7 @@ const SchedulePage: React.FC = () => {
         return () => ws.close();
     }, [token, user]);
 
-    const styles = StyleSheet.create({
 
-    const styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            padding: 16,
-            backgroundColor: colors.background,
-        },
-        header: {
-            fontSize: 28,
-            fontWeight: 'bold',
-            marginBottom: 24,
-            color: colors.text,
-        },
-        section: {
-            marginBottom: 12,
-            borderRadius: 8,
-            backgroundColor: colors.card,
-            overflow: 'hidden',
-        },
-        sectionHeader: {
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: 16,
-            backgroundColor: colors.border,
-        },
-        sectionHeaderText: {
-            fontSize: 18,
-            fontWeight: '600',
-            color: colors.text,
-        },
-        arrow: {
-            fontSize: 18,
-            color: colors.text,
-        },
-        sectionContent: {
-            padding: 16,
-            backgroundColor: colors.background,
-        },
-        placeholder: {
-            color: colors.notification,
-            fontStyle: 'italic',
-        },
-        newTicketButton: {
-            borderRadius: 10,
-            paddingVertical: 10,
-            paddingHorizontal: 16,
-            marginBottom: 16,
-            alignSelf: 'flex-start',
-        },
-        newTicketButtonText: {
-            color: '#fff',
-            fontWeight: '700',
-        },
-    });
 
     const styles = StyleSheet.create({
         container: {

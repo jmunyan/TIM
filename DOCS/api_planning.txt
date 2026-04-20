@@ -91,4 +91,4 @@ color
 - powderInStock
 - powderOnOrder
 - has one
-	- customer?
+	- customer?  
