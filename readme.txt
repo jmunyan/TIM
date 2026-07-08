@@ -9,7 +9,10 @@ Goals:
         this has shifted to be more about the jobs than the inventory due to current/future needs.
 
     Secondary:
-        John Munyan - stay up to date on software development skills and put something on my personal GitHub for potential employers to see. 
+        Stay up to date on software development skills and put something on my personal GitHub for potential employers to see. 
+        Current tools I have been playing with:
+            Ollama + Claude code - using claude for planning larger context planning, with local agents for smaller tasks made by Claude. (to reduce token usage without losing the convenience)
+            Reading documentation for Github actions with plans to host the site locally for testing. started building some better startup scripts the last time I worked on this.
 
 Requirements:
     Security: 
@@ -59,6 +62,20 @@ Requirements:
         
 
 To Do List: 
+    /*  
+    *    trying to get an agent to handle the to do list (because why not?) 
+    *    ideal situation would be to run a single ai model that can just manage the to do rather than have a list here at all, but we need the data to get there. 
+    *    a free solution (jira or even apple reminders/google to do) is definitely more effective, this is pretty much just for fun
+    *
+    *    current roadblocks: 
+    *        local models cant handle the context size of the codebase
+    *        could use commit log to handle this? 
+    *            need to test how accurate to the to do item the comit needs to be.
+    *            if it needs to be too accurate, then this is a waste of time
+    *        bigger model/context works better, but I run our of compute locally...
+    *            thus host a test server locally as mentioned above (raspberry pi or another computer I have round, will need more testing to see what will fit where.)
+    */
+                
     everything. :OneStepPlanToConquerTheUniverse: :rotfl:
     - create repo [DONE]
     - create initial project plan [DONE]
