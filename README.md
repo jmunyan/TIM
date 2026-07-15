@@ -1,10 +1,11 @@
-## Total Inventory Management (TIM)
+## TIM
 
 ## How to run this web app
 
-**For Windows Users**
-**You must have Docker, Rails, and Node/npm installed**
-navigate to the repository and run the start.ps1 powershell script
+**For Windows Users Only** (for now)
+**You must have Rails, wsl, and Node/npm installed**
+navigate to the repository and run the automations/start.ps1 powershell script
+^ this is broken right now, needs to run bundle commands in wsl
 your browser should open the page. If it does not, the project is on http://localhost:8081
 
 ## Goals: 
