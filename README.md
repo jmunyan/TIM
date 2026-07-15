@@ -9,11 +9,11 @@ navigate to the repository and run the automations/start.ps1 powershell script
 your browser should open the page. If it does not, the project is on http://localhost:8081
 
 ## Goals: 
-    Primary: 
+    **Primary:** 
         Create an inventory management system capable of tracking items, their position in storage, and their associated jobs
         this has shifted to be more about the jobs than the inventory due to current/future needs.
 
-    Secondary:
+    **Secondary:**
         Stay up to date on software development skills and put something on my personal GitHub for potential employers to see. 
         Current tools I have been playing with:
             Ollama + Claude code - using claude for planning larger context planning, with local agents for smaller tasks made by Claude. (to reduce token usage without losing the convenience)
