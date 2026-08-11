@@ -1,6 +1,6 @@
 **this is moving to the githuib issues. I need to get some more things done before playing with AI automations**
 
-##To Do List:
+## To Do List
     - create repo [DONE]
     - create initial project plan [DONE]
     - find free project management software and set up a project
@@ -18,7 +18,7 @@
     - research websockets, up to date information is essential to a production scenario. [STARTED]
         - https://guides.rubyonrails.org/action_cable_overview.html
 
-    ##WEB
+## WEB
     - create page layout/styling
         - soften background on dark mode [IN PROGRESS]
         - add 'ThemedButton' colors to the actual Theme [IN PROGRESS]
@@ -76,7 +76,7 @@
         - docker? (that's what I have seen used in the past)
         - research other container options
 
-    ##API
+## API
     - fix docker container, doesn't start properly.
         - warning about deprecated packages, need to figure out the rest.
     - make a lucidchart of the tables
