@@ -1,0 +1,9 @@
+blast:
+  area: main_shop
+  name: Blast
+  description: Media blasting prep
+
+powder_coat:
+  area: main_shop
+  name: Powder Coat
+  description: Powder application and cure

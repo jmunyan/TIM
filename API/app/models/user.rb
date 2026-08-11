@@ -2,6 +2,8 @@ class User < ApplicationRecord
   belongs_to :organization
   belongs_to :area, optional: true
 
+  has_many :punches
+
   has_secure_password
 
   validates :name, presence: true

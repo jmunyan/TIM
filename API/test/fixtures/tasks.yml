@@ -1,0 +1,10 @@
+first_job_blast:
+  job: first_job
+  task_type: blast
+  started_at: 2026-01-10 08:00:00
+  stopped_at: 2026-01-10 09:30:00
+
+first_job_powder_coat:
+  job: first_job
+  task_type: powder_coat
+  started_at: 2026-01-11 08:00:00

@@ -1,0 +1,9 @@
+first_job_blast_punch:
+  task: first_job_blast
+  user: alice
+  time: 2026-01-10 08:05:00
+
+first_job_powder_coat_punch:
+  task: first_job_powder_coat
+  user: bob
+  time: 2026-01-11 08:05:00
