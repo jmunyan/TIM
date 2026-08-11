@@ -1,0 +1,7 @@
+main_shop_spec_sheet:
+  area: main_shop
+  link: spec_sheet
+
+main_shop_safety_data:
+  area: main_shop
+  link: safety_data

@@ -1,0 +1,11 @@
+first_job:
+  customer: acme_customer
+  area: main_shop
+  ticket_no: 1001
+  completed_on: 2026-01-15
+  powder_used: 12.5
+
+second_job:
+  customer: acme_customer
+  area: main_shop
+  ticket_no: 1002

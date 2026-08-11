@@ -1,0 +1,8 @@
+main_shop:
+  organization: acme
+  name: Main Shop
+  map_file: main_shop.jpg
+
+secondary_shop:
+  organization: secondary
+  name: Secondary Shop

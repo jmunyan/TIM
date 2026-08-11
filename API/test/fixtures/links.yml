@@ -1,0 +1,8 @@
+spec_sheet:
+  name: Spec Sheet
+  description: Reference specification document
+  value: https://example.com/spec-sheet
+
+safety_data:
+  name: Safety Data Sheet
+  value: https://example.com/sds

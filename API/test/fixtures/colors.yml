@@ -1,0 +1,14 @@
+matte_black:
+  customer: acme_customer
+  job: first_job
+  name: Matte Black
+  color_code: RAL9005
+  brand: Tiger Drylac
+  powder_in_stock: 25.0
+  powder_on_order: 10.0
+
+gloss_white:
+  customer: acme_customer
+  name: Gloss White
+  color_code: RAL9010
+  brand: Prismatic Powders

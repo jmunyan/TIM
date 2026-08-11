@@ -1,0 +1,14 @@
+alice:
+  organization: acme
+  area: main_shop
+  name: Alice Operator
+  username: alice
+  password_digest: <%= BCrypt::Password.create('password123') %>
+  user_level: production
+
+bob:
+  organization: acme
+  name: Bob Captain
+  username: bob
+  password_digest: <%= BCrypt::Password.create('password123') %>
+  user_level: captain

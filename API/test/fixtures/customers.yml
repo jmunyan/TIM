@@ -1,0 +1,8 @@
+acme_customer:
+  organization: acme
+  name: Big Industrial Co
+  address: 789 Industrial Pkwy
+
+secondary_customer:
+  organization: secondary
+  name: Small Fab Shop
