@@ -1,0 +1,60 @@
+# Local TIM stack: Rails API first, then the Expo web front end.
+#
+#   docker compose up --build
+#
+# The `web` service waits for the API health check (/up) to pass before it
+# starts, so the API is always serving before Metro comes up.
+#
+#   API -> http://localhost:3000
+#   WEB -> http://localhost:8081
+
+name: tim
+
+services:
+  api:
+    build:
+      context: ./API
+      dockerfile: Dockerfile.dev
+    image: tim-api-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Source is mounted so Rails' code reloading picks up host edits. Rails
+      # falls back to the stat-based FileUpdateChecker here (no listen gem), so
+      # reloading works over the bind mount where inotify-based watchers don't.
+      # Gems live in /usr/local/bundle, outside the mount, so they survive.
+      - ./API:/rails
+    environment:
+      RAILS_ENV: development
+      # Rails' dev host authorization allows localhost by default; add the LAN
+      # address here if you open the app from another machine.
+      # RAILS_DEVELOPMENT_HOSTS: 192.168.1.50
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:3000/up"]
+      # Poll fast while booting so `web` starts as soon as the API answers, then
+      # back off so the health checks don't drown the development log.
+      start_period: 90s
+      start_interval: 2s
+      interval: 60s
+      timeout: 5s
+      retries: 3
+
+  web:
+    build:
+      context: ./WEB
+      target: dev
+    image: tim-web-dev
+    ports:
+      - "8081:8081"
+    volumes:
+      # Mounted so edits land in the container without an image rebuild. Note
+      # that Metro's watcher uses inotify, which gets no events from a Windows
+      # host bind mount -- run `docker compose restart web` to pick edits up.
+      - ./WEB:/web
+      # Anonymous volumes keep the container's Linux node_modules and Expo cache
+      # from being shadowed by the Windows copies in the bind mount.
+      - /web/node_modules
+      - /web/.expo
+    depends_on:
+      api:
+        condition: service_healthy

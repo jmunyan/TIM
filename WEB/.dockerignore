@@ -1,0 +1,24 @@
+# Dependencies (reinstalled inside the image with `npm ci`)
+node_modules
+
+# Expo / Metro build output and caches
+.expo
+.expo-shared
+dist
+web-build
+.metro-health-check*
+
+# Editor / OS
+.vscode
+.DS_Store
+
+# Docker
+Dockerfile*
+.dockerignore
+
+# Logs and local env
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+.env*.local
+*.tsbuildinfo

@@ -1,0 +1,40 @@
+# syntax=docker/dockerfile:1
+
+# Development image for the TIM API.
+#
+# The sibling `Dockerfile` is the production/Kamal image: it runs RAILS_ENV=production,
+# which needs RAILS_MASTER_KEY and has `config.force_ssl = true` (every plain-http
+# request gets 301'd to https), so it can't serve the local web app over
+# http://localhost:3000. This image runs the development environment instead:
+# all gem groups installed, no master key, no SSL redirect, code reloading on.
+#
+#   docker build -f API/Dockerfile.dev -t tim-api-dev ./API
+#   docker run --rm -p 3000:3000 tim-api-dev
+
+ARG RUBY_VERSION=3.4.5
+FROM docker.io/library/ruby:$RUBY_VERSION-slim
+
+WORKDIR /rails
+
+# Runtime packages plus the toolchain needed to build native gem extensions.
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y \
+      build-essential curl git libjemalloc2 libvips libyaml-dev pkg-config sqlite3 && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+ENV RAILS_ENV="development" \
+    BUNDLE_PATH="/usr/local/bundle" \
+    RAILS_MAX_THREADS="5"
+
+COPY Gemfile Gemfile.lock ./
+RUN bundle install && rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache
+
+COPY . .
+
+EXPOSE 3000
+
+# db:prepare creates storage/development.sqlite3 and runs pending migrations on
+# first boot; it is a no-op once the database is up to date. The pid file is
+# cleared first so a stale one from a native `rails server` run (the source tree
+# is bind mounted in docker-compose.yml) doesn't block boot.
+CMD ["bash", "-c", "rm -f tmp/pids/server.pid && bundle exec rails db:prepare && bundle exec rails server -b 0.0.0.0 -p 3000"]
