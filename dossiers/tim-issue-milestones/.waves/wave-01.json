@@ -1,0 +1,843 @@
+{
+  "label": "Wave 1 - dependency and co-location graph across the 46 entries",
+  "question": "Which entries block which, and which touch the same files?",
+  "ran_at": "2026-08-20 07:57",
+  "run": {
+    "ok": true,
+    "model": "gemma4:latest",
+    "wave_wall_s": 55.65,
+    "results": [
+      {
+        "drone": "Cottus",
+        "focus": "every file path, stated dependency, cross-reference and code identifier in these register rows",
+        "ok": true,
+        "data": {
+          "items": [
+            {
+              "entry": "gh#10 web app cannot reach the API: namespace mismatch and unconfigured base URL",
+              "kind": "ghref",
+              "value": "10",
+              "quote": "https://github.com/jmunyan/TIM/issues/10"
+            },
+            {
+              "entry": "gh#10 web app cannot reach the API: namespace mismatch and unconfigured base URL",
+              "kind": "path",
+              "value": "DOCS/ISSUE_web_api_wiring.md",
+              "quote": ""
+            },
+            {
+              "entry": "gh#10 web app cannot reach the API: namespace mismatch and unconfigured base URL",
+              "kind": "dependency",
+              "value": "unblocks most of the sweep entries",
+              "quote": "Fixing it unblocks most of the sweep entries."
+            },
+            {
+              "entry": "Nothing ever calls login and there is no login screen",
+              "kind": "path",
+              "value": "auth.tsx:26",
+              "quote": ""
+            },
+            {
+              "entry": "Nothing ever calls login and there is no login screen",
+              "kind": "path",
+              "value": "app/_layout.tsx",
+              "quote": ""
+            },
+            {
+              "entry": "Nothing ever calls login and there is no login screen",
+              "kind": "path",
+              "value": "schedule.tsx:36",
+              "quote": ""
+            },
+            {
+              "entry": "Nothing ever calls login and there is no login screen",
+              "kind": "dependency",
+              "value": "API 404ing a login attempt",
+              "quote": "Distinct from gh#10: that is the API 404ing a login attempt, this is having no screen to attempt one from."
+            },
+            {
+              "entry": "Nothing ever calls login and there is no login screen",
+              "kind": "distinction",
+              "value": "",
+              "quote": "Distinct from gh#10: that is the API 404ing a login attempt, this is having no screen to attempt one from."
+            },
+            {
+              "entry": "Action Cable does not reject a connection with no token",
+              "kind": "path",
+              "value": "connection.rb:13",
+              "quote": ""
+            },
+            {
+              "entry": "Action Cable does not reject a connection with no token",
+              "kind": "path",
+              "value": "schedule_channel.rb:3",
+              "quote": ""
+            },
+            {
+              "entry": "Tests cover models only",
+              "kind": "path",
+              "value": "API/test/models/",
+              "quote": ""
+            },
+            {
+              "entry": "Tests cover models only",
+              "kind": "path",
+              "value": "API/test/controllers/",
+              "quote": ""
+            },
+            {
+              "entry": "Tests cover models only",
+              "kind": "path",
+              "value": "API/test/integration/",
+              "quote": ""
+            },
+            {
+              "entry": "Tests cover models only",
+              "kind": "path",
+              "value": "API/test/channels/",
+              "quote": ""
+            },
+            {
+              "entry": "Tests cover models only",
+              "kind": "dependency",
+              "value": "One request test against /api/jobs would have caught all three blocking entries.",
+              "quote": "One request test against /api/jobs would have caught all three blocking entries."
+            },
+            {
+              "entry": "Ten tables carry deleted_at and no model ever filters on it",
+              "kind": "path",
+              "value": "schema.rb",
+              "quote": ""
+            },
+            {
+              "entry": "Ten tables carry deleted_at and no model ever filters on it",
+              "kind": "path",
+              "value": "API/app/models",
+              "quote": ""
+            },
+            {
+              "entry": "Ten tables carry deleted_at and no model ever filters on it",
+              "kind": "symbol",
+              "value": "deleted_at",
+              "quote": ""
+            },
+            {
+              "entry": "Ten tables carry deleted_at and no model ever filters on it",
+              "kind": "symbol",
+              "value": "default_scope",
+              "quote": ""
+            },
+            {
+              "entry": "Ten tables carry deleted_at and no model ever filters on it",
+              "kind": "symbol",
+              "value": "discard",
+              "quote": ""
+            },
+            {
+              "entry": "Ten tables carry deleted_at and no model ever filters on it",
+              "kind": "symbol",
+              "value": "paranoia",
+              "quote": ""
+            },
+            {
+              "entry": "Ticket detail page shows fabricated sample data",
+              "kind": "path",
+              "value": "ticket/[ticketId].tsx:16-19",
+              "quote": ""
+            },
+            {
+              "entry": "Ticket detail page shows fabricated sample data",
+              "kind": "symbol",
+              "value": "ticketId",
+              "quote": ""
+            },
+            {
+              "entry": "Ticket detail page shows fabricated sample data",
+              "kind": "distinction",
+              "value": "",
+              "quote": "Different page from the job editor already on the to-do list; this is the read-only view behind 'Go To Ticket'."
+            },
+            {
+              "entry": "Bare rescue in find_verified_user masks unrelated errors",
+              "kind": "path",
+              "value": "connection.rb:14",
+              "quote": ""
+            },
+            {
+              "entry": "Bare rescue in find_verified_user masks unrelated errors",
+              "kind": "symbol",
+              "value": "find_verified_user",
+              "quote": ""
+            },
+            {
+              "entry": "Ticket.location type contradicts both section lists",
+              "kind": "path",
+              "value": "constants/Ticket.ts:11",
+              "quote": ""
+            },
+            {
+              "entry": "Ticket.location type contradicts both section lists",
+              "kind": "symbol",
+              "value": "Ticket.location",
+              "quote": ""
+            },
+            {
+              "entry": "Ticket.location type contradicts both section lists",
+              "kind": "dependency",
+              "value": "Related to the duplication entry but a different defect: a third list that disagrees.",
+              "quote": "Related to the duplication entry but a different defect: a third list that disagrees."
+            },
+            {
+              "entry": "PrimeReact is pinned to a light theme",
+              "kind": "path",
+              "value": "schedule.tsx:6",
+              "quote": ""
+            },
+            {
+              "entry": "PrimeReact is pinned to a light theme",
+              "kind": "path",
+              "value": "lara-light-cyan/theme.css",
+              "quote": ""
+            },
+            {
+              "entry": "PrimeReact is pinned to a light theme",
+              "kind": "distinction",
+              "value": "",
+              "quote": "Different from gh#4, which is the app's own palette in light mode."
+            },
+            {
+              "entry": "gh#5 change the theme button to a toggle switch",
+              "kind": "ghref",
+              "value": "5",
+              "quote": "https://github.com/jmunyan/TIM/issues/5"
+            },
+            {
+              "entry": "gh#5 change the theme button to a toggle switch",
+              "kind": "path",
+              "value": "DropdownMenu.tsx:25-33",
+              "quote": ""
+            },
+            {
+              "entry": "The default auth context returns an empty 200 instead of failing loudly",
+              "kind": "path",
+              "value": "auth.tsx:8",
+              "quote": ""
+            },
+            {
+              "entry": "The default auth context returns an empty 200 instead of failing loudly",
+              "kind": "symbol",
+              "value": "authFetch",
+              "quote": ""
+            },
+            {
+              "entry": "Should the prep job section be split into prep and wash",
+              "kind": "symbol",
+              "value": "prep job section",
+              "quote": ""
+            }
+          ]
+        },
+        "raw": "{\n  \"items\": [\n    {\n      \"entry\": \"gh#10 web app cannot reach the API: namespace mismatch and unconfigured base URL\",\n      \"kind\": \"ghref\",\n      \"value\": \"10\",\n      \"quote\": \"https://github.com/jmunyan/TIM/issues/10\"\n    },\n    {\n      \"entry\": \"gh#10 web app cannot reach the API: namespace mismatch and unconfigured base URL\",\n      \"kind\": \"path\",\n      \"value\": \"DOCS/ISSUE_web_api_wiring.md\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"gh#10 web app cannot reach the API: namespace mismatch and unconfigured base URL\",\n      \"kind\": \"dependency\",\n      \"value\": \"unblocks most of the sweep entries\",\n      \"quote\": \"Fixing it unblocks most of the sweep entries.\"\n    },\n    {\n      \"entry\": \"Nothing ever calls login and there is no login screen\",\n      \"kind\": \"path\",\n      \"value\": \"auth.tsx:26\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Nothing ever calls login and there is no login screen\",\n      \"kind\": \"path\",\n      \"value\": \"app/_layout.tsx\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Nothing ever calls login and there is no login screen\",\n      \"kind\": \"path\",\n      \"value\": \"schedule.tsx:36\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Nothing ever calls login and there is no login screen\",\n      \"kind\": \"dependency\",\n      \"value\": \"API 404ing a login attempt\",\n      \"quote\": \"Distinct from gh#10: that is the API 404ing a login attempt, this is having no screen to attempt one from.\"\n    },\n    {\n      \"entry\": \"Nothing ever calls login and there is no login screen\",\n      \"kind\": \"distinction\",\n      \"value\": \"\",\n      \"quote\": \"Distinct from gh#10: that is the API 404ing a login attempt, this is having no screen to attempt one from.\"\n    },\n    {\n      \"entry\": \"Action Cable does not reject a connection with no token\",\n      \"kind\": \"path\",\n      \"value\": \"connection.rb:13\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Action Cable does not reject a connection with no token\",\n      \"kind\": \"path\",\n      \"value\": \"schedule_channel.rb:3\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Tests cover models only\",\n      \"kind\": \"path\",\n      \"value\": \"API/test/models/\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Tests cover models only\",\n      \"kind\": \"path\",\n      \"value\": \"API/test/controllers/\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Tests cover models only\",\n      \"kind\": \"path\",\n      \"value\": \"API/test/integration/\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Tests cover models only\",\n      \"kind\": \"path\",\n      \"value\": \"API/test/channels/\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Tests cover models only\",\n      \"kind\": \"dependency\",\n      \"value\": \"One request test against /api/jobs would have caught all three blocking entries.\",\n      \"quote\": \"One request test against /api/jobs would have caught all three blocking entries.\"\n    },\n    {\n      \"entry\": \"Ten tables carry deleted_at and no model ever filters on it\",\n      \"kind\": \"path\",\n      \"value\": \"schema.rb\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Ten tables carry deleted_at and no model ever filters on it\",\n      \"kind\": \"path\",\n      \"value\": \"API/app/models\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Ten tables carry deleted_at and no model ever filters on it\",\n      \"kind\": \"symbol\",\n      \"value\": \"deleted_at\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Ten tables carry deleted_at and no model ever filters on it\",\n      \"kind\": \"symbol\",\n      \"value\": \"default_scope\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Ten tables carry deleted_at and no model ever filters on it\",\n      \"kind\": \"symbol\",\n      \"value\": \"discard\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Ten tables carry deleted_at and no model ever filters on it\",\n      \"kind\": \"symbol\",\n      \"value\": \"paranoia\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Ticket detail page shows fabricated sample data\",\n      \"kind\": \"path\",\n      \"value\": \"ticket/[ticketId].tsx:16-19\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Ticket detail page shows fabricated sample data\",\n      \"kind\": \"symbol\",\n      \"value\": \"ticketId\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Ticket detail page shows fabricated sample data\",\n      \"kind\": \"distinction\",\n      \"value\": \"\",\n      \"quote\": \"Different page from the job editor already on the to-do list; this is the read-only view behind 'Go To Ticket'.\"\n    },\n    {\n      \"entry\": \"Bare rescue in find_verified_user masks unrelated errors\",\n      \"kind\": \"path\",\n      \"value\": \"connection.rb:14\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Bare rescue in find_verified_user masks unrelated errors\",\n      \"kind\": \"symbol\",\n      \"value\": \"find_verified_user\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Ticket.location type contradicts both section lists\",\n      \"kind\": \"path\",\n      \"value\": \"constants/Ticket.ts:11\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Ticket.location type contradicts both section lists\",\n      \"kind\": \"symbol\",\n      \"value\": \"Ticket.location\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Ticket.location type contradicts both section lists\",\n      \"kind\": \"dependency\",\n      \"value\": \"Related to the duplication entry but a different defect: a third list that disagrees.\",\n      \"quote\": \"Related to the duplication entry but a different defect: a third list that disagrees.\"\n    },\n    {\n      \"entry\": \"PrimeReact is pinned to a light theme\",\n      \"kind\": \"path\",\n      \"value\": \"schedule.tsx:6\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"PrimeReact is pinned to a light theme\",\n      \"kind\": \"path\",\n      \"value\": \"lara-light-cyan/theme.css\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"PrimeReact is pinned to a light theme\",\n      \"kind\": \"distinction\",\n      \"value\": \"\",\n      \"quote\": \"Different from gh#4, which is the app's own palette in light mode.\"\n    },\n    {\n      \"entry\": \"gh#5 change the theme button to a toggle switch\",\n      \"kind\": \"ghref\",\n      \"value\": \"5\",\n      \"quote\": \"https://github.com/jmunyan/TIM/issues/5\"\n    },\n    {\n      \"entry\": \"gh#5 change the theme button to a toggle switch\",\n      \"kind\": \"path\",\n      \"value\": \"DropdownMenu.tsx:25-33\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"The default auth context returns an empty 200 instead of failing loudly\",\n      \"kind\": \"path\",\n      \"value\": \"auth.tsx:8\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"The default auth context returns an empty 200 instead of failing loudly\",\n      \"kind\": \"symbol\",\n      \"value\": \"authFetch\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Should the prep job section be split into prep and wash\",\n      \"kind\": \"symbol\",\n      \"value\": \"prep job section\",\n      \"quote\": \"\"\n    }\n  ]\n}",
+        "note": null,
+        "retries": 0,
+        "usage": {
+          "in_tokens": 1466,
+          "out_tokens": 2029,
+          "wall_s": 48.33,
+          "load_s": 2.65,
+          "eval_s": 43.59
+        }
+      },
+      {
+        "drone": "Briareus",
+        "focus": "every file path, stated dependency, cross-reference and code identifier in these register rows",
+        "ok": true,
+        "data": {
+          "items": [
+            {
+              "entry": "Job has_many colors but the controller calls job.color",
+              "kind": "symbol",
+              "value": "job.color",
+              "quote": ""
+            },
+            {
+              "entry": "Job has_many colors but the controller calls job.color",
+              "kind": "path",
+              "value": "job.rb:6",
+              "quote": ""
+            },
+            {
+              "entry": "Job has_many colors but the controller calls job.color",
+              "kind": "path",
+              "value": "jobs_controller.rb:18",
+              "quote": ""
+            },
+            {
+              "entry": "CI has never run because the workflow is not at the repo root",
+              "kind": "path",
+              "value": "API/.github/workflows/ci.yml",
+              "quote": ""
+            },
+            {
+              "entry": "CI has never run because the workflow is not at the repo root",
+              "kind": "symbol",
+              "value": "Brakeman",
+              "quote": ""
+            },
+            {
+              "entry": "CI has never run because the workflow is not at the repo root",
+              "kind": "symbol",
+              "value": "RuboCop",
+              "quote": ""
+            },
+            {
+              "entry": "CI has never run because the workflow is not at the repo root",
+              "kind": "symbol",
+              "value": "test job",
+              "quote": ""
+            },
+            {
+              "entry": "broadcast_update is never called",
+              "kind": "symbol",
+              "value": "broadcast_update",
+              "quote": ""
+            },
+            {
+              "entry": "broadcast_update is never called",
+              "kind": "path",
+              "value": "jobs_controller.rb:29-34",
+              "quote": ""
+            },
+            {
+              "entry": "broadcast_update is never called",
+              "kind": "xref",
+              "value": "how-should-tim-deliver-live-updates-in-production",
+              "quote": "Concrete instance of the architecture question in [[how-should-tim-deliver-live-updates-in-production]]."
+            },
+            {
+              "entry": "Web-only APIs in an app that ships native targets",
+              "kind": "path",
+              "value": "auth.tsx:18,19,29,30,36,37",
+              "quote": ""
+            },
+            {
+              "entry": "Web-only APIs in an app that ships native targets",
+              "kind": "path",
+              "value": "theme.tsx:25,34",
+              "quote": ""
+            },
+            {
+              "entry": "Web-only APIs in an app that ships native targets",
+              "kind": "path",
+              "value": "new-ticket.tsx:51,62",
+              "quote": ""
+            },
+            {
+              "entry": "Web-only APIs in an app that ships native targets",
+              "kind": "path",
+              "value": "DialogFooter.tsx:8-10",
+              "quote": ""
+            },
+            {
+              "entry": "Web-only APIs in an app that ships native targets",
+              "kind": "path",
+              "value": "MoveTicketDialog.tsx:73",
+              "quote": ""
+            },
+            {
+              "entry": "The new-ticket form collects parts the schema cannot store",
+              "kind": "path",
+              "value": "new-ticket.tsx:7-13",
+              "quote": ""
+            },
+            {
+              "entry": "The new-ticket form collects parts the schema cannot store",
+              "kind": "xref",
+              "value": "what-should-the-job-wizard-actually-collect",
+              "quote": "Feeds directly into [[what-should-the-job-wizard-actually-collect]]."
+            },
+            {
+              "entry": "Two competing time-tracking mechanisms in the schema",
+              "kind": "path",
+              "value": "schema.rb:111-121",
+              "quote": ""
+            },
+            {
+              "entry": "Two competing time-tracking mechanisms in the schema",
+              "kind": "path",
+              "value": "schema.rb:90-99",
+              "quote": ""
+            },
+            {
+              "entry": "Two competing time-tracking mechanisms in the schema",
+              "kind": "xref",
+              "value": "should-project-management-and-hour-tracking-live-inside-tim-itself",
+              "quote": "Bears on [[should-project-management-and-hour-tracking-live-inside-tim-itself]]."
+            },
+            {
+              "entry": "gh#4 some text not visible in light mode",
+              "kind": "ghref",
+              "value": "4",
+              "quote": ""
+            },
+            {
+              "entry": "gh#6 move the to-do list into the project tracker",
+              "kind": "ghref",
+              "value": "6",
+              "quote": ""
+            },
+            {
+              "entry": "gh#6 move the to-do list into the project tracker",
+              "kind": "xref",
+              "value": "which-free-project-management-tool-fits-a-one-person-project",
+              "quote": "overlaps [[which-free-project-management-tool-fits-a-one-person-project]]: that entry picks the tool, this one does the migration once a tool is picked."
+            },
+            {
+              "entry": "What should the job wizard actually collect",
+              "kind": "symbol",
+              "value": "job wizard",
+              "quote": ""
+            },
+            {
+              "entry": "TicketCard prints the PO twice",
+              "kind": "path",
+              "value": "TicketCard.tsx:38",
+              "quote": ""
+            },
+            {
+              "entry": "TicketCard prints the PO twice",
+              "kind": "path",
+              "value": "TicketCard.tsx:41",
+              "quote": ""
+            }
+          ]
+        },
+        "raw": "{\n  \"items\": [\n    {\n      \"entry\": \"Job has_many colors but the controller calls job.color\",\n      \"kind\": \"symbol\",\n      \"value\": \"job.color\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Job has_many colors but the controller calls job.color\",\n      \"kind\": \"path\",\n      \"value\": \"job.rb:6\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Job has_many colors but the controller calls job.color\",\n      \"kind\": \"path\",\n      \"value\": \"jobs_controller.rb:18\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"CI has never run because the workflow is not at the repo root\",\n      \"kind\": \"path\",\n      \"value\": \"API/.github/workflows/ci.yml\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"CI has never run because the workflow is not at the repo root\",\n      \"kind\": \"symbol\",\n      \"value\": \"Brakeman\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"CI has never run because the workflow is not at the repo root\",\n      \"kind\": \"symbol\",\n      \"value\": \"RuboCop\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"CI has never run because the workflow is not at the repo root\",\n      \"kind\": \"symbol\",\n      \"value\": \"test job\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"broadcast_update is never called\",\n      \"kind\": \"symbol\",\n      \"value\": \"broadcast_update\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"broadcast_update is never called\",\n      \"kind\": \"path\",\n      \"value\": \"jobs_controller.rb:29-34\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"broadcast_update is never called\",\n      \"kind\": \"xref\",\n      \"value\": \"how-should-tim-deliver-live-updates-in-production\",\n      \"quote\": \"Concrete instance of the architecture question in [[how-should-tim-deliver-live-updates-in-production]].\"\n    },\n    {\n      \"entry\": \"Web-only APIs in an app that ships native targets\",\n      \"kind\": \"path\",\n      \"value\": \"auth.tsx:18,19,29,30,36,37\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Web-only APIs in an app that ships native targets\",\n      \"kind\": \"path\",\n      \"value\": \"theme.tsx:25,34\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Web-only APIs in an app that ships native targets\",\n      \"kind\": \"path\",\n      \"value\": \"new-ticket.tsx:51,62\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Web-only APIs in an app that ships native targets\",\n      \"kind\": \"path\",\n      \"value\": \"DialogFooter.tsx:8-10\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Web-only APIs in an app that ships native targets\",\n      \"kind\": \"path\",\n      \"value\": \"MoveTicketDialog.tsx:73\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"The new-ticket form collects parts the schema cannot store\",\n      \"kind\": \"path\",\n      \"value\": \"new-ticket.tsx:7-13\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"The new-ticket form collects parts the schema cannot store\",\n      \"kind\": \"xref\",\n      \"value\": \"what-should-the-job-wizard-actually-collect\",\n      \"quote\": \"Feeds directly into [[what-should-the-job-wizard-actually-collect]].\"\n    },\n    {\n      \"entry\": \"Two competing time-tracking mechanisms in the schema\",\n      \"kind\": \"path\",\n      \"value\": \"schema.rb:111-121\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Two competing time-tracking mechanisms in the schema\",\n      \"kind\": \"path\",\n      \"value\": \"schema.rb:90-99\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Two competing time-tracking mechanisms in the schema\",\n      \"kind\": \"xref\",\n      \"value\": \"should-project-management-and-hour-tracking-live-inside-tim-itself\",\n      \"quote\": \"Bears on [[should-project-management-and-hour-tracking-live-inside-tim-itself]].\"\n    },\n    {\n      \"entry\": \"gh#4 some text not visible in light mode\",\n      \"kind\": \"ghref\",\n      \"value\": \"4\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"gh#6 move the to-do list into the project tracker\",\n      \"kind\": \"ghref\",\n      \"value\": \"6\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"gh#6 move the to-do list into the project tracker\",\n      \"kind\": \"xref\",\n      \"value\": \"which-free-project-management-tool-fits-a-one-person-project\",\n      \"quote\": \"overlaps [[which-free-project-management-tool-fits-a-one-person-project]]: that entry picks the tool, this one does the migration once a tool is picked.\"\n    },\n    {\n      \"entry\": \"What should the job wizard actually collect\",\n      \"kind\": \"symbol\",\n      \"value\": \"job wizard\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"TicketCard prints the PO twice\",\n      \"kind\": \"path\",\n      \"value\": \"TicketCard.tsx:38\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"TicketCard prints the PO twice\",\n      \"kind\": \"path\",\n      \"value\": \"TicketCard.tsx:41\",\n      \"quote\": \"\"\n    }\n  ]\n}",
+        "note": null,
+        "retries": 0,
+        "usage": {
+          "in_tokens": 1423,
+          "out_tokens": 1494,
+          "wall_s": 38.92,
+          "load_s": 2.58,
+          "eval_s": 33.67
+        }
+      },
+      {
+        "drone": "Gyges",
+        "focus": "every file path, stated dependency, cross-reference and code identifier in these register rows",
+        "ok": true,
+        "data": {
+          "items": [
+            {
+              "entry": "jobs table has no organization_id but the controller scopes on it",
+              "kind": "symbol",
+              "value": "organization_id",
+              "quote": ""
+            },
+            {
+              "entry": "jobs table has no organization_id but the controller scopes on it",
+              "kind": "path",
+              "value": "jobs_controller.rb:5",
+              "quote": ""
+            },
+            {
+              "entry": "jobs table has no organization_id but the controller scopes on it",
+              "kind": "path",
+              "value": "schema.rb:59-71",
+              "quote": ""
+            },
+            {
+              "entry": "jobs table has no organization_id but the controller scopes on it",
+              "kind": "symbol",
+              "value": "broadcast_update",
+              "quote": ""
+            },
+            {
+              "entry": "jobs table has no organization_id but the controller scopes on it",
+              "kind": "xref",
+              "value": "gh#10",
+              "quote": "Not the same as the forgeable-token half of gh#10"
+            },
+            {
+              "entry": "Create ticket creates nothing and reports success",
+              "kind": "path",
+              "value": "new-ticket.tsx:49-64",
+              "quote": ""
+            },
+            {
+              "entry": "Create ticket creates nothing and reports success",
+              "kind": "dependency",
+              "value": "Blocked by the missing create route.",
+              "quote": "Blocked by the missing create route."
+            },
+            {
+              "entry": "Save settings discards every field",
+              "kind": "path",
+              "value": "settings/[userId].tsx:59-64",
+              "quote": ""
+            },
+            {
+              "entry": "Save settings discards every field",
+              "kind": "symbol",
+              "value": "onPress",
+              "quote": ""
+            },
+            {
+              "entry": "A Color belongs to both a customer and a job, both optional",
+              "kind": "path",
+              "value": "color.rb:2-3",
+              "quote": ""
+            },
+            {
+              "entry": "No front-end tests and expo lint is never run",
+              "kind": "path",
+              "value": "WEB/package.json",
+              "quote": ""
+            },
+            {
+              "entry": "The menu always opens user 1's settings",
+              "kind": "path",
+              "value": "DropdownMenu.tsx:38",
+              "quote": ""
+            },
+            {
+              "entry": "MoveTicketDialog never clears the note between tickets",
+              "kind": "path",
+              "value": "MoveTicketDialog.tsx:33-39",
+              "quote": ""
+            },
+            {
+              "entry": "Which free project management tool fits a one-person project",
+              "kind": "symbol",
+              "value": "TO_DO.md",
+              "quote": "Also arguably already answered \u2014 issues and TO_DO.md are both live in this repo."
+            }
+          ]
+        },
+        "raw": "{\n  \"items\": [\n    {\n      \"entry\": \"jobs table has no organization_id but the controller scopes on it\",\n      \"kind\": \"symbol\",\n      \"value\": \"organization_id\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"jobs table has no organization_id but the controller scopes on it\",\n      \"kind\": \"path\",\n      \"value\": \"jobs_controller.rb:5\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"jobs table has no organization_id but the controller scopes on it\",\n      \"kind\": \"path\",\n      \"value\": \"schema.rb:59-71\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"jobs table has no organization_id but the controller scopes on it\",\n      \"kind\": \"symbol\",\n      \"value\": \"broadcast_update\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"jobs table has no organization_id but the controller scopes on it\",\n      \"kind\": \"xref\",\n      \"value\": \"gh#10\",\n      \"quote\": \"Not the same as the forgeable-token half of gh#10\"\n    },\n    {\n      \"entry\": \"Create ticket creates nothing and reports success\",\n      \"kind\": \"path\",\n      \"value\": \"new-ticket.tsx:49-64\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Create ticket creates nothing and reports success\",\n      \"kind\": \"dependency\",\n      \"value\": \"Blocked by the missing create route.\",\n      \"quote\": \"Blocked by the missing create route.\"\n    },\n    {\n      \"entry\": \"Save settings discards every field\",\n      \"kind\": \"path\",\n      \"value\": \"settings/[userId].tsx:59-64\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Save settings discards every field\",\n      \"kind\": \"symbol\",\n      \"value\": \"onPress\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"A Color belongs to both a customer and a job, both optional\",\n      \"kind\": \"path\",\n      \"value\": \"color.rb:2-3\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"No front-end tests and expo lint is never run\",\n      \"kind\": \"path\",\n      \"value\": \"WEB/package.json\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"The menu always opens user 1's settings\",\n      \"kind\": \"path\",\n      \"value\": \"DropdownMenu.tsx:38\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"MoveTicketDialog never clears the note between tickets\",\n      \"kind\": \"path\",\n      \"value\": \"MoveTicketDialog.tsx:33-39\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Which free project management tool fits a one-person project\",\n      \"kind\": \"symbol\",\n      \"value\": \"TO_DO.md\",\n      \"quote\": \"Also arguably already answered \u2014 issues and TO_DO.md are both live in this repo.\"\n    }\n  ]\n}",
+        "note": null,
+        "retries": 0,
+        "usage": {
+          "in_tokens": 1266,
+          "out_tokens": 767,
+          "wall_s": 23.73,
+          "load_s": 2.89,
+          "eval_s": 18.09
+        }
+      },
+      {
+        "drone": "Brontes",
+        "focus": "every file path, stated dependency, cross-reference and code identifier in these register rows",
+        "ok": true,
+        "data": {
+          "items": [
+            {
+              "entry": "jobs_controller renders notes and description, neither is a column",
+              "kind": "path",
+              "value": "jobs_controller.rb:17,19",
+              "quote": "jobs_controller.rb:17,19 render job.notes and job.description; the jobs table has neither. schedule.tsx:45,47 maps both into every ticket."
+            },
+            {
+              "entry": "No route creates or updates a job",
+              "kind": "path",
+              "value": "routes.rb:11-15",
+              "quote": "routes.rb:11-15 declares only POST /api/sessions, DELETE /api/session, GET /api/jobs. The new-ticket form and the move-ticket dialog have no endpoint to call. Blocks the two 'not persisted' entries below."
+            },
+            {
+              "entry": "Moving a ticket is not persisted",
+              "kind": "path",
+              "value": "schedule.tsx:167-180",
+              "quote": "schedule.tsx:167-180 updates local state only; a refresh reverts it. Different from the existing 'move dialog not styled' to-do, which is appearance."
+            },
+            {
+              "entry": "Sections are matched against area.name with nothing keeping them in sync",
+              "kind": "path",
+              "value": "schedule.tsx:150",
+              "quote": "schedule.tsx:150 filters ticket.location === section; location is area.name straight from the DB (jobs_controller.rb:16). Any area not named exactly one of the nine strings drops its tickets silently. Code vs database, where the two entries above are code vs code. Decides [[should-the-prep-job-section-be-split-into-prep-and-wash]]."
+            },
+            {
+              "entry": "Subscription failures are invisible and the socket never reconnects",
+              "kind": "path",
+              "value": "schedule.tsx:71-83",
+              "quote": "schedule.tsx:71-83 handles only ping and job_updated, ignoring confirm_subscription and reject_subscription; onclose at :85 only logs. Given the nil-user rejection, a rejected subscription looks exactly like an idle connection."
+            },
+            {
+              "entry": "authFetch is rebuilt every render and sits in the effect deps",
+              "kind": "path",
+              "value": "auth.tsx:40",
+              "quote": "auth.tsx:40 is not memoised and schedule.tsx:54 depends on it, so jobs refetch whenever AuthProvider re-renders rather than when the token changes."
+            },
+            {
+              "entry": "Section list is duplicated verbatim in two files",
+              "kind": "path",
+              "value": "schedule.tsx:13-23",
+              "quote": "schedule.tsx:13-23 and MoveTicketDialog.tsx:20-30 hold the same nine strings."
+            },
+            {
+              "entry": "Part ids collide because addPart uses prev.length + 1",
+              "kind": "path",
+              "value": "new-ticket.tsx:36",
+              "quote": "new-ticket.tsx:36. Remove part 2 of 3 then add one and two parts share id 3 -- which is the React key."
+            },
+            {
+              "entry": "Dead duplicate CORS config in initializers/cors.rb",
+              "kind": "path",
+              "value": "initializers/cors.rb",
+              "quote": "cors.rb is commented out end to end while the live rule sits in application.rb:33-38. Two places to look, one inert. The origins '*' value itself is gh#10; this is the duplication."
+            },
+            {
+              "entry": "Task is the only model with no validations",
+              "kind": "path",
+              "value": "API/app/models/task.rb",
+              "quote": "API/app/models/task.rb -- no validates line."
+            },
+            {
+              "entry": "Kamal deploy image is still the placeholder your-user/api",
+              "kind": "path",
+              "value": "deploy.yml:5",
+              "quote": "deploy.yml:5. Harmless until someone runs kamal deploy."
+            },
+            {
+              "entry": "jobs_controller renders notes and description, neither is a column",
+              "kind": "symbol",
+              "value": "jobs_controller",
+              "quote": ""
+            },
+            {
+              "entry": "jobs_controller renders notes and description, neither is a column",
+              "kind": "symbol",
+              "value": "job.notes",
+              "quote": ""
+            },
+            {
+              "entry": "jobs_controller renders notes and description, neither is a column",
+              "kind": "symbol",
+              "value": "job.description",
+              "quote": ""
+            },
+            {
+              "entry": "jobs_controller renders notes and description, neither is a column",
+              "kind": "symbol",
+              "value": "schedule.tsx",
+              "quote": ""
+            },
+            {
+              "entry": "No route creates or updates a job",
+              "kind": "symbol",
+              "value": "routes.rb",
+              "quote": ""
+            },
+            {
+              "entry": "No route creates or updates a job",
+              "kind": "symbol",
+              "value": "POST /api/sessions",
+              "quote": ""
+            },
+            {
+              "entry": "No route creates or updates a job",
+              "kind": "symbol",
+              "value": "DELETE /api/session",
+              "quote": ""
+            },
+            {
+              "entry": "No route creates or updates a job",
+              "kind": "symbol",
+              "value": "GET /api/jobs",
+              "quote": ""
+            },
+            {
+              "entry": "Moving a ticket is not persisted",
+              "kind": "symbol",
+              "value": "schedule.tsx",
+              "quote": ""
+            },
+            {
+              "entry": "Moving a ticket is not persisted",
+              "kind": "symbol",
+              "value": "move dialog not styled",
+              "quote": ""
+            },
+            {
+              "entry": "Sections are matched against area.name with nothing keeping them in sync",
+              "kind": "symbol",
+              "value": "schedule.tsx",
+              "quote": ""
+            },
+            {
+              "entry": "Sections are matched against area.name with nothing keeping them in sync",
+              "kind": "symbol",
+              "value": "ticket.location",
+              "quote": ""
+            },
+            {
+              "entry": "Sections are matched against area.name with nothing keeping them in sync",
+              "kind": "symbol",
+              "value": "area.name",
+              "quote": ""
+            },
+            {
+              "entry": "Sections are matched against area.name with nothing keeping them in sync",
+              "kind": "symbol",
+              "value": "jobs_controller.rb",
+              "quote": ""
+            },
+            {
+              "entry": "Subscription failures are invisible and the socket never reconnects",
+              "kind": "symbol",
+              "value": "schedule.tsx",
+              "quote": ""
+            },
+            {
+              "entry": "Subscription failures are invisible and the socket never reconnects",
+              "kind": "symbol",
+              "value": "job_updated",
+              "quote": ""
+            },
+            {
+              "entry": "Subscription failures are invisible and the socket never reconnects",
+              "kind": "symbol",
+              "value": "confirm_subscription",
+              "quote": ""
+            },
+            {
+              "entry": "Subscription failures are invisible and the socket never reconnects",
+              "kind": "symbol",
+              "value": "reject_subscription",
+              "quote": ""
+            },
+            {
+              "entry": "Subscription failures are invisible and the socket never reconnects",
+              "kind": "symbol",
+              "value": "onclose",
+              "quote": ""
+            },
+            {
+              "entry": "authFetch is rebuilt every render and sits in the effect deps",
+              "kind": "symbol",
+              "value": "auth.tsx",
+              "quote": ""
+            },
+            {
+              "entry": "authFetch is rebuilt every render and sits in the effect deps",
+              "kind": "symbol",
+              "value": "schedule.tsx",
+              "quote": ""
+            },
+            {
+              "entry": "authFetch is rebuilt every render and sits in the effect deps",
+              "kind": "symbol",
+              "value": "jobs",
+              "quote": ""
+            },
+            {
+              "entry": "Section list is duplicated verbatim in two files",
+              "kind": "symbol",
+              "value": "schedule.tsx",
+              "quote": ""
+            },
+            {
+              "entry": "Section list is duplicated verbatim in two files",
+              "kind": "symbol",
+              "value": "MoveTicketDialog.tsx",
+              "quote": ""
+            },
+            {
+              "entry": "Part ids collide because addPart uses prev.length + 1",
+              "kind": "symbol",
+              "value": "new-ticket.tsx",
+              "quote": ""
+            },
+            {
+              "entry": "Part ids collide because addPart uses prev.length + 1",
+              "kind": "symbol",
+              "value": "addPart",
+              "quote": ""
+            },
+            {
+              "entry": "Dead duplicate CORS config in initializers/cors.rb",
+              "kind": "symbol",
+              "value": "cors.rb",
+              "quote": ""
+            },
+            {
+              "entry": "Dead duplicate CORS config in initializers/cors.rb",
+              "kind": "symbol",
+              "value": "application.rb",
+              "quote": ""
+            },
+            {
+              "entry": "Dead duplicate CORS config in initializers/cors.rb",
+              "kind": "symbol",
+              "value": "origins",
+              "quote": ""
+            },
+            {
+              "entry": "Task is the only model with no validations",
+              "kind": "symbol",
+              "value": "task.rb",
+              "quote": ""
+            },
+            {
+              "entry": "Kamal deploy image is still the placeholder your-user/api",
+              "kind": "symbol",
+              "value": "deploy.yml",
+              "quote": ""
+            }
+          ]
+        },
+        "raw": "{\n  \"items\": [\n    {\n      \"entry\": \"jobs_controller renders notes and description, neither is a column\",\n      \"kind\": \"path\",\n      \"value\": \"jobs_controller.rb:17,19\",\n      \"quote\": \"jobs_controller.rb:17,19 render job.notes and job.description; the jobs table has neither. schedule.tsx:45,47 maps both into every ticket.\"\n    },\n    {\n      \"entry\": \"No route creates or updates a job\",\n      \"kind\": \"path\",\n      \"value\": \"routes.rb:11-15\",\n      \"quote\": \"routes.rb:11-15 declares only POST /api/sessions, DELETE /api/session, GET /api/jobs. The new-ticket form and the move-ticket dialog have no endpoint to call. Blocks the two 'not persisted' entries below.\"\n    },\n    {\n      \"entry\": \"Moving a ticket is not persisted\",\n      \"kind\": \"path\",\n      \"value\": \"schedule.tsx:167-180\",\n      \"quote\": \"schedule.tsx:167-180 updates local state only; a refresh reverts it. Different from the existing 'move dialog not styled' to-do, which is appearance.\"\n    },\n    {\n      \"entry\": \"Sections are matched against area.name with nothing keeping them in sync\",\n      \"kind\": \"path\",\n      \"value\": \"schedule.tsx:150\",\n      \"quote\": \"schedule.tsx:150 filters ticket.location === section; location is area.name straight from the DB (jobs_controller.rb:16). Any area not named exactly one of the nine strings drops its tickets silently. Code vs database, where the two entries above are code vs code. Decides [[should-the-prep-job-section-be-split-into-prep-and-wash]].\"\n    },\n    {\n      \"entry\": \"Subscription failures are invisible and the socket never reconnects\",\n      \"kind\": \"path\",\n      \"value\": \"schedule.tsx:71-83\",\n      \"quote\": \"schedule.tsx:71-83 handles only ping and job_updated, ignoring confirm_subscription and reject_subscription; onclose at :85 only logs. Given the nil-user rejection, a rejected subscription looks exactly like an idle connection.\"\n    },\n    {\n      \"entry\": \"authFetch is rebuilt every render and sits in the effect deps\",\n      \"kind\": \"path\",\n      \"value\": \"auth.tsx:40\",\n      \"quote\": \"auth.tsx:40 is not memoised and schedule.tsx:54 depends on it, so jobs refetch whenever AuthProvider re-renders rather than when the token changes.\"\n    },\n    {\n      \"entry\": \"Section list is duplicated verbatim in two files\",\n      \"kind\": \"path\",\n      \"value\": \"schedule.tsx:13-23\",\n      \"quote\": \"schedule.tsx:13-23 and MoveTicketDialog.tsx:20-30 hold the same nine strings.\"\n    },\n    {\n      \"entry\": \"Part ids collide because addPart uses prev.length + 1\",\n      \"kind\": \"path\",\n      \"value\": \"new-ticket.tsx:36\",\n      \"quote\": \"new-ticket.tsx:36. Remove part 2 of 3 then add one and two parts share id 3 -- which is the React key.\"\n    },\n    {\n      \"entry\": \"Dead duplicate CORS config in initializers/cors.rb\",\n      \"kind\": \"path\",\n      \"value\": \"initializers/cors.rb\",\n      \"quote\": \"cors.rb is commented out end to end while the live rule sits in application.rb:33-38. Two places to look, one inert. The origins '*' value itself is gh#10; this is the duplication.\"\n    },\n    {\n      \"entry\": \"Task is the only model with no validations\",\n      \"kind\": \"path\",\n      \"value\": \"API/app/models/task.rb\",\n      \"quote\": \"API/app/models/task.rb -- no validates line.\"\n    },\n    {\n      \"entry\": \"Kamal deploy image is still the placeholder your-user/api\",\n      \"kind\": \"path\",\n      \"value\": \"deploy.yml:5\",\n      \"quote\": \"deploy.yml:5. Harmless until someone runs kamal deploy.\"\n    },\n    {\n      \"entry\": \"jobs_controller renders notes and description, neither is a column\",\n      \"kind\": \"symbol\",\n      \"value\": \"jobs_controller\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"jobs_controller renders notes and description, neither is a column\",\n      \"kind\": \"symbol\",\n      \"value\": \"job.notes\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"jobs_controller renders notes and description, neither is a column\",\n      \"kind\": \"symbol\",\n      \"value\": \"job.description\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"jobs_controller renders notes and description, neither is a column\",\n      \"kind\": \"symbol\",\n      \"value\": \"schedule.tsx\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"No route creates or updates a job\",\n      \"kind\": \"symbol\",\n      \"value\": \"routes.rb\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"No route creates or updates a job\",\n      \"kind\": \"symbol\",\n      \"value\": \"POST /api/sessions\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"No route creates or updates a job\",\n      \"kind\": \"symbol\",\n      \"value\": \"DELETE /api/session\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"No route creates or updates a job\",\n      \"kind\": \"symbol\",\n      \"value\": \"GET /api/jobs\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Moving a ticket is not persisted\",\n      \"kind\": \"symbol\",\n      \"value\": \"schedule.tsx\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Moving a ticket is not persisted\",\n      \"kind\": \"symbol\",\n      \"value\": \"move dialog not styled\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Sections are matched against area.name with nothing keeping them in sync\",\n      \"kind\": \"symbol\",\n      \"value\": \"schedule.tsx\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Sections are matched against area.name with nothing keeping them in sync\",\n      \"kind\": \"symbol\",\n      \"value\": \"ticket.location\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Sections are matched against area.name with nothing keeping them in sync\",\n      \"kind\": \"symbol\",\n      \"value\": \"area.name\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Sections are matched against area.name with nothing keeping them in sync\",\n      \"kind\": \"symbol\",\n      \"value\": \"jobs_controller.rb\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Subscription failures are invisible and the socket never reconnects\",\n      \"kind\": \"symbol\",\n      \"value\": \"schedule.tsx\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Subscription failures are invisible and the socket never reconnects\",\n      \"kind\": \"symbol\",\n      \"value\": \"job_updated\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Subscription failures are invisible and the socket never reconnects\",\n      \"kind\": \"symbol\",\n      \"value\": \"confirm_subscription\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Subscription failures are invisible and the socket never reconnects\",\n      \"kind\": \"symbol\",\n      \"value\": \"reject_subscription\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Subscription failures are invisible and the socket never reconnects\",\n      \"kind\": \"symbol\",\n      \"value\": \"onclose\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"authFetch is rebuilt every render and sits in the effect deps\",\n      \"kind\": \"symbol\",\n      \"value\": \"auth.tsx\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"authFetch is rebuilt every render and sits in the effect deps\",\n      \"kind\": \"symbol\",\n      \"value\": \"schedule.tsx\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"authFetch is rebuilt every render and sits in the effect deps\",\n      \"kind\": \"symbol\",\n      \"value\": \"jobs\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Section list is duplicated verbatim in two files\",\n      \"kind\": \"symbol\",\n      \"value\": \"schedule.tsx\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Section list is duplicated verbatim in two files\",\n      \"kind\": \"symbol\",\n      \"value\": \"MoveTicketDialog.tsx\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Part ids collide because addPart uses prev.length + 1\",\n      \"kind\": \"symbol\",\n      \"value\": \"new-ticket.tsx\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Part ids collide because addPart uses prev.length + 1\",\n      \"kind\": \"symbol\",\n      \"value\": \"addPart\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Dead duplicate CORS config in initializers/cors.rb\",\n      \"kind\": \"symbol\",\n      \"value\": \"cors.rb\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Dead duplicate CORS config in initializers/cors.rb\",\n      \"kind\": \"symbol\",\n      \"value\": \"application.rb\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Dead duplicate CORS config in initializers/cors.rb\",\n      \"kind\": \"symbol\",\n      \"value\": \"origins\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Task is the only model with no validations\",\n      \"kind\": \"symbol\",\n      \"value\": \"task.rb\",\n      \"quote\": \"\"\n    },\n    {\n      \"entry\": \"Kamal deploy image is still the placeholder your-user/api\",\n      \"kind\": \"symbol\",\n      \"value\": \"deploy.yml\",\n      \"quote\": \"\"\n    }\n  ]\n}",
+        "note": null,
+        "retries": 0,
+        "usage": {
+          "in_tokens": 1262,
+          "out_tokens": 2518,
+          "wall_s": 55.65,
+          "load_s": 2.88,
+          "eval_s": 51.71
+        }
+      }
+    ],
+    "tartarus": {
+      "in_tokens": 5417,
+      "out_tokens": 6808,
+      "drone_seconds": 166.63,
+      "eval_seconds": 147.06,
+      "wave_wall_s": 55.65
+    },
+    "muster": {
+      "hands": 4,
+      "num_ctx": 8192,
+      "footprint_bytes": 3356365945,
+      "measured": true,
+      "budget_bytes": 9792525434,
+      "fits": true,
+      "basis": "vram",
+      "concurrency": {
+        "parallel": true,
+        "slots": 4,
+        "ratio": null,
+        "source": "ollama server log",
+        "note": null
+      },
+      "notes": []
+    },
+    "claude": {
+      "turns": 44,
+      "subagent_turns": 32,
+      "input_tokens": 152,
+      "output_tokens": 53477,
+      "thinking_tokens": 22781,
+      "cache_write_tokens": 644160,
+      "cache_read_tokens": 8049223,
+      "web_search_requests": 0,
+      "web_fetch_requests": 0,
+      "models": {
+        "claude-opus-5": 44,
+        "claude-sonnet-5": 32
+      },
+      "session_id": "a126aabc-a6b7-439f-865a-3e33c1c95a41",
+      "first_wave": false
+    }
+  }
+}
