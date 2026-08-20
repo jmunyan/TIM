@@ -16,8 +16,9 @@ pass, and only then starts the Expo web server.
 - WEB: http://localhost:8081
 
 Both source trees are bind mounted, so you edit files on the host as usual:
-- **API** — edits are live. Rails re-checks file timestamps on each request, so
-  the next request picks up your change; no restart needed.
+- **API** — edits are live except migrations (run `docker compose restart api`).
+  Rails re-checks file timestamps on each request, so the next request picks up
+  your change; no restart needed.
 - **WEB** — edits need `docker compose restart web` (~15s, no image rebuild).
   Metro watches with inotify, which never fires for changes made on the Windows
   host, so the dev server does not notice them on its own.
@@ -43,5 +44,4 @@ this has shifted to be more about the jobs than the inventory due to current/fut
 **Secondary:**
 - Stay up to date on software development skills and put something on my personal GitHub for potential employers to see. 
 - Current tools I have been playing with:
-    - Ollama + Claude code - using claude for planning larger context planning, with local agents for smaller tasks made by Claude. (to reduce token usage without losing the convenience) 
-    - Reading documentation for Github actions with plans to host the site locally for testing. started building some better startup scripts the last time I worked on this.
+    - Claude Code
